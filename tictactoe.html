@@ -12,54 +12,63 @@
 
 		<script>
 
-
+			// Declaring, setting and displaying each square.
 			var squareOne
 			var setSquareOne = function() {
 				squareOne = "X";
+				document.getElementById("divSquareOne").innerHTML = squareOne;	
 			}
 			
 			var squareTwo
                         var setSquareTwo = function() {
 				squareTwo = "X";
+                        	document.getElementById("divSquareTwo").innerHTML = squareTwo; 
 			}
 
 			var squareThree
 			var setSquareThree = function() {
 				squareThree = "X";
+                        	document.getElementById("divSquareThree").innerHTML = squareThree; 
 			}
 
 			var squareFour
 			var setSquareFour = function() {
 				squareFour = "X";
+                        	document.getElementById("divSquareFour").innerHTML = squareFour; 
 			}
 
 			var squareFive
 			var setSquareFive = function() {
 				squareFive = "X";
+                        	document.getElementById("divSquareFive").innerHTML = squareFive; 
 			}
 
 			var squareSix
 			var setSquareSix = function() {
 				squareSix = "X";
+                        	document.getElementById("divSquareSix").innerHTML = squareSix; 
 			}
 
 			var squareSeven
 			var setSquareSeven = function() {
 				squareSeven = "X";
+	                        document.getElementById("divSquareSeven").innerHTML = squareSeven; 
 			}
 
 			var squareEight
 			var setSquareEight = function() {
 				squareEight = "X";
+	                        document.getElementById("divSquareEight").innerHTML = squareEight; 
 			}
 
 			var squareNine
 			var setSquareNine = function() {
 				squareNine = "X";
+	                        document.getElementById("divSquareNine").innerHTML = squareNine; 
 			}
 
 		
-			
+			// To clear all divs and restart game.	
 			var clearAllSquares = function() {
 				squareOne = "";
 				squareTwo = "";
@@ -81,27 +90,29 @@
 
 
 
-
+		
 		<table>
 			<tr>
-				<td><div onclick="setSquareOne()">1</div></td>
-				<td><div onclick="setSquareTwo()">2</div></td>
-				<td><div onclick="setSquareThree()">3</div></td>
+				<td><div id="divSquareOne" onclick="setSquareOne()"></div></td>
+				<td><div id="divSquareTwo" onclick="setSquareTwo()"></div></td>
+				<td><div id="divSquareThree" onclick="setSquareThree()"></div></td>
 			</tr>
                         <tr>
-				<td><div onclick="setSquareFour()">4</div></td>
-				<td><div onclick="setSquareFive()">5</div></td>
-				<td><div onclick="setSquareSix()">6</div></td>
+				<td><div id="divSquareFour" onclick="setSquareFour()"></div></td>
+				<td><div id="divSquareFive" onclick="setSquareFive()"></div></td>
+				<td><div id="divSquareSix" onclick="setSquareSix()"></div></td>
 			</tr>
                         <tr>
-				<td><div onclick="setSquareSeven()">7</div></td>
-				<td><div onclick="setSquareEight()">8</div></td>
-				<td><div onclick="setSquareNine()">9</div></td>
+				<td><div id="divSquareSeven" onclick="setSquareSeven()"></div></td>
+				<td><div id="divSquareEight" onclick="setSquareEight()"></div></td>
+				<td><div id="divSquareNine" onclick="setSquareNine()"></div></td>
                         </tr>
 
 
 		</table>
 
+
+		<!-- To clear all divs and restart game. -->
 		<br><br>
 		<button onclick="clearAllSquares()" class="button">
 		<strong>Start again!</strong>
