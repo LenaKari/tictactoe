@@ -1,0 +1,43 @@
+body {
+	font-family: Courier;
+}
+
+table {
+	line-height: 150px;
+	text-align: center;
+	font-size: 100px;
+	color: #33cc33; 
+}
+
+td {
+	width: 150px;
+	border-bottom: 2px solid black;
+}
+
+td+td {
+	border-left: 2px solid black;
+}
+
+tr:last-child td {
+	border-bottom: 0px;
+}
+
+div {
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.button {
+	background-color: #33cc33 ;
+	width: 100px ;
+	height: 30px ;
+	line-height: 20px ;
+	border: 2px solid black;
+	text-align: center ;
+	vertical-align: midde ;
+	border-radius: 5px;
+	cursor: Pointer ;
+}

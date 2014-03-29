@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+		<title>tic-tac-toe</title>
+	</head>
+
+
+	<body>
+
+		<script>
+
+
+			var squareOne
+			var setSquareOne = function() {
+				squareOne = "X";
+			}
+			
+			var squareTwo
+                        var setSquareTwo = function() {
+				squareTwo = "X";
+			}
+
+			var squareThree
+			var setSquareThree = function() {
+				squareThree = "X";
+			}
+
+			var squareFour
+			var setSquareFour = function() {
+				squareFour = "X";
+			}
+
+			var squareFive
+			var setSquareFive = function() {
+				squareFive = "X";
+			}
+
+			var squareSix
+			var setSquareSix = function() {
+				squareSix = "X";
+			}
+
+			var squareSeven
+			var setSquareSeven = function() {
+				squareSeven = "X";
+			}
+
+			var squareEight
+			var setSquareEight = function() {
+				squareEight = "X";
+			}
+
+			var squareNine
+			var setSquareNine = function() {
+				squareNine = "X";
+			}
+
+		
+			
+			var clearAllSquares = function() {
+				squareOne = "";
+				squareTwo = "";
+				squareThree = "";
+				squareFour = "";
+				squareFive = "";
+				squareSix = "";
+				squareSeven = "";
+				squareEight = "";
+				squareNine = "";
+			}
+
+
+		</script>
+
+
+
+
+
+
+
+
+		<table>
+			<tr>
+				<td><div onclick="setSquareOne()">1</div></td>
+				<td><div onclick="setSquareTwo()">2</div></td>
+				<td><div onclick="setSquareThree()">3</div></td>
+			</tr>
+                        <tr>
+				<td><div onclick="setSquareFour()">4</div></td>
+				<td><div onclick="setSquareFive()">5</div></td>
+				<td><div onclick="setSquareSix()">6</div></td>
+			</tr>
+                        <tr>
+				<td><div onclick="setSquareSeven()">7</div></td>
+				<td><div onclick="setSquareEight()">8</div></td>
+				<td><div onclick="setSquareNine()">9</div></td>
+                        </tr>
+
+
+		</table>
+
+		<br><br>
+		<button onclick="clearAllSquares()" class="button">
+		<strong>Start again!</strong>
+		</button>
+
+
+
+
+	</body>	
+
+
+</html>
