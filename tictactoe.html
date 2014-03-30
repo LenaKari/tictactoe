@@ -27,7 +27,7 @@
 			var columnThree = new Array ();
 			var diagonalOne = new Array ();
 			var diagonalTwo = new Array ();
-
+			var allSquares = new Array (squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine);
 
 			// Declaring, setting and displaying each square.
 			var squareOne
@@ -152,12 +152,97 @@
 				} else if (moveCount === 9) {
 					alert("It's a draw!");
 				} else {
-					alert("Not finished");
+					computerMove();
 				}
 			}
 
 
+			var computerMove = function() {
+				if (squareOne == "X") {
+					if (squareTwo == "X" && squareThree == null) {
+						squareThree = "O";
+					} else if (squareThree == "X" && squareTwo == null) {
+						squareTwo = "O";
+					} else if (squareFour == "X" && squareSeven == null) {
+						squareSeven = "O";
+					} else if (squareSeven == "X" && squareFour == null) {
+						squareFour = "O";
+					} else if (squareFive == "X" && squareNine == null) {
+						squareNine = "O";
+					} else if (squareNine == "X" && squareFive == null) {
+						squareFive = "O";
+					} else {
+					}
+				} else if (squareTwo == "X") {
+					if (squareThree == "X" && squareOne == null) {
+						squareOne = "O";
+					} else if (squareFive == "X" && squareEight == null) {
+						squareEight = "O";
+					} else if (squareEight == "X" && squareFive == null) {
+						squareFive = "O";
+					} else {
+					}
+				} else if (squareThree == "X") {
+					if (squareFive == "X" && squareSeven == null) {
+						squareSeven = "O";
+					} else if (squareSix == "X" && squareNine == null) {
+						squareNine = "O";
+					} else if (squareSeven == "X" && squareFive == null) {
+						squareFive = "O";
+					} else if (squareNine == "X" && squareSix == null) {
+						squareSix = "O";
+					} else {
+					}
+				} else if (squareFour == "X") {
+					if (squareFive == "X" && squareSix == null) {
+						squareSix = "O";
+					} else if (squareSix == "X" && squareFive == null) {
+						squareFive = "O";
+					} else if (squareSeven == "X" && squareOne == null) {
+						squareOne = "O";
+					} else {
+					}
+				} else if (squareFive == "X") {
+					if (squareSix == "X" && squareFour == null) {
+						squareFour = "O";
+					} else if (squareSeven == "X" && squareThree == null) {
+						squareThree = "O";
+					} else if (squareEight == "X" && squareTwo == null) {
+						squareTwo = "O";
+					} else if (squareNine == "X" && squareOne == null) {
+						squareOne = "O";
+					} else {
+					}
+				} else if (squareSix == "X") {
+					if (squareNine == "X" && squareThree == null) {
+						squareThree = "O";
+					} else {
+					}
+				} else if (squareSeven == "X") {
+					if (squareEight == "X" && squareNine == null) {
+						squareNine = "O";
+					} else if (squareNine == "X" && squareEight == null) {
+						squareEight = "O";
+					} else {
+					}
+				} else if (squareEight == "X") {
+					if (squareNine == "X" && squareSeven == null) {
+						squareSeven = "O";
+					} else {
+					}
+				} else {
+//						ENTER RANDOM SQUARE
+				}
+			}
+			
 
+				squareNine = "X";
+				rowThree.push("X");
+				columnThree.push("X");
+				diagonalOne.push("X");
+				document.getElementById("divSquareNine").innerHTML = squareNine; 
+				winCheck();
+			}
 
 
 
