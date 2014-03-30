@@ -27,95 +27,95 @@
 			var columnThree = new Array ();
 			var diagonalOne = new Array ();
 			var diagonalTwo = new Array ();
-			var allSquares = new Array (squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine);
+			
 
 			// Declaring, setting and displaying each square.
-			var squareOne
-			var setSquareOne = function() {
-				squareOne = "X";
+			var squareOne = 0;
+			var setSquareOne = function(input) {
+				squareOne = input;
 				rowOne.push(squareOne);
 				columnOne.push(squareOne);
 				diagonalOne.push(squareOne);
 				document.getElementById("divSquareOne").innerHTML = squareOne;	
-				winCheck();
+				winCheck(squareOne);
 
 			}
 			
-			var squareTwo
-                        var setSquareTwo = function() {
-				squareTwo = "X";
-				rowOne.push ("X");
-				columnTwo.push("X");
+			var squareTwo = 0;
+                        var setSquareTwo = function(input) {
+				squareTwo = input;
+				rowOne.push (squareTwo);
+				columnTwo.push(squareTwo);
                         	document.getElementById("divSquareTwo").innerHTML = squareTwo; 
-				winCheck();
+				winCheck(squareTwo);
 			}
 
-			var squareThree
-			var setSquareThree = function() {
-				squareThree = "X";
-				rowOne.push("X");
-				columnThree.push("X");
-				diagonalTwo.push("X");
+			var squareThree = 0;
+			var setSquareThree = function(input) {
+				squareThree = input;
+				rowOne.push(squareThree);
+				columnThree.push(squareThree);
+				diagonalTwo.push(squareThree);
                         	document.getElementById("divSquareThree").innerHTML = squareThree; 
-				winCheck();
+				winCheck(squareThree);
 			}
 
-			var squareFour
-			var setSquareFour = function() {
-				squareFour = "X";
-				rowTwo.push("X");
-				columnOne.push("X");
+			var squareFour = 0;
+			var setSquareFour = function(input) {
+				squareFour = input;
+				rowTwo.push(squareFour);
+				columnOne.push(squareFour);
                         	document.getElementById("divSquareFour").innerHTML = squareFour; 
-				winCheck();
+				winCheck(squareFour);
 			}
 
-			var squareFive
-			var setSquareFive = function() {
-				squareFive = "X";
-				rowTwo.push("X");
-				columnTwo.push("X");
-				diagonalOne.push("X");
-				diagonalTwo.push("X");
+			var squareFive = 0;
+			var setSquareFive = function(input) {
+				squareFive = input;
+				rowTwo.push(squareFive);
+				columnTwo.push(squareFive);
+				diagonalOne.push(squareFive);
+				diagonalTwo.push(squareFive);
                         	document.getElementById("divSquareFive").innerHTML = squareFive; 
-				winCheck();
+				winCheck(squareFive);
 			}
 
-			var squareSix
-			var setSquareSix = function() {
-				squareSix = "X";
-				rowTwo.push("X");
-				columnThree.push("X");
+			var squareSix = 0;
+			var setSquareSix = function(input) {
+				squareSix = input;
+				rowTwo.push(squareSix);
+				columnThree.push(squareSix);
                         	document.getElementById("divSquareSix").innerHTML = squareSix; 
-				winCheck();
+				winCheck(squareSix);
 			}
 
-			var squareSeven
-			var setSquareSeven = function() {
-				squareSeven = "X";
-				rowThree.push("X");
-				columnOne.push("X");
-				diagonalTwo.push("X");
+			var squareSeven = 0;
+			var setSquareSeven = function(input) {
+				squareSeven = input;
+				rowThree.push(squareSeven);
+				columnOne.push(squareSeven);
+				diagonalTwo.push(squareSeven);
 	                        document.getElementById("divSquareSeven").innerHTML = squareSeven; 
-				winCheck();
+				winCheck(squareSeven);
 			}
 
-			var squareEight
-			var setSquareEight = function() {
-				squareEight = "X";
-				rowThree.push("X");
-				columnTwo.push("X");
+			var squareEight = 0;
+			var setSquareEight = function(input) {
+				squareEight = input;
+				rowThree.push(squareEight);
+				columnTwo.push(squareEight);
 	                        document.getElementById("divSquareEight").innerHTML = squareEight; 
-				winCheck();
+				winCheck(squareEight);
 			}
 
-			var squareNine
-			var setSquareNine = function() {
-				squareNine = "X";
-				rowThree.push("X");
-				columnThree.push("X");
-				diagonalOne.push("X");
+			var squareNine = 0;
+			var setSquareNine = function(input) {
+				squareNine = input;
+				rowThree.push(squareNine);
+				columnThree.push(squareNine);
+				diagonalOne.push(squareNine);
 	                        document.getElementById("divSquareNine").innerHTML = squareNine; 
-				winCheck();
+				winCheck(squareNine);
 			}
 
 			
@@ -131,129 +131,172 @@
 				return true;
 			}
 
-			var winCheck = function() {
+			var winCheck = function(input) {
 				moveCount();
                                 if (rowOne.length === 3 && rowOne.AllValuesSame() == true) {
-					alert(rowOne[0] + " is the winner!");
+					alert(input + " is the winner!");
 				} else if (rowTwo.length === 3 && rowTwo.AllValuesSame() == true) {
-					alert(rowTwo[0] + " is the winner!");
+					alert(input + " is the winner!");
 				} else if (rowThree.length === 3 && rowThree.AllValuesSame() == true) {
-					alert(rowThree[0] + " is the winner!");
+					alert(input + " is the winner!");
                                 } else if (columnOne.length === 3 && columnOne.AllValuesSame() == true) {
-					alert(columnOne[0] + " is the winner!");
+					alert(input + " is the winner!");
                                 } else if (columnTwo.length === 3 && columnTwo.AllValuesSame() == true) {
-					alert(columnTwo[0] + " is the winner!");
+					alert(input + " is the winner!");
                                 } else if (columnThree.length === 3 && columnThree.AllValuesSame() == true) {
-					alert(columnThree[0] + " is the winner!");
+					alert(input + " is the winner!");
                                 } else if (diagonalOne.length === 3 && diagonalOne.AllValuesSame() == true) {
-					alert(diagonalOne[0] + " is the winner!");
+					alert(input + " is the winner!");
                                 } else if (diagonalTwo.length === 3 && diagonalTwo.AllValuesSame() == true) {
-					alert(diagonalTwo[0] + " is the winner!");
+					alert(input + " is the winner!");
 				} else if (moveCount === 9) {
 					alert("It's a draw!");
 				} else {
-					computerMove();
+					if (input == "X") {
+						computerResponse();
+					} else {
+					}
 				}
 			}
 
+			// Determining the computer's response
+			var computerResponse = function() {
+                                var allSquares = new Array (squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine);
+				var randomNumber = Math.floor((Math.random()*9));
+				var randomSelect = allSquares[randomNumber];
 
-			var computerMove = function() {
-				if (squareOne == "X") {
-					if (squareTwo == "X" && squareThree == null) {
-						squareThree = "O";
-					} else if (squareThree == "X" && squareTwo == null) {
-						squareTwo = "O";
-					} else if (squareFour == "X" && squareSeven == null) {
-						squareSeven = "O";
-					} else if (squareSeven == "X" && squareFour == null) {
-						squareFour = "O";
-					} else if (squareFive == "X" && squareNine == null) {
-						squareNine = "O";
-					} else if (squareNine == "X" && squareFive == null) {
-						squareFive = "O";
-					} else {
-					}
-				} else if (squareTwo == "X") {
-					if (squareThree == "X" && squareOne == null) {
-						squareOne = "O";
-					} else if (squareFive == "X" && squareEight == null) {
-						squareEight = "O";
-					} else if (squareEight == "X" && squareFive == null) {
-						squareFive = "O";
-					} else {
-					}
-				} else if (squareThree == "X") {
-					if (squareFive == "X" && squareSeven == null) {
-						squareSeven = "O";
-					} else if (squareSix == "X" && squareNine == null) {
-						squareNine = "O";
-					} else if (squareSeven == "X" && squareFive == null) {
-						squareFive = "O";
-					} else if (squareNine == "X" && squareSix == null) {
-						squareSix = "O";
-					} else {
-					}
-				} else if (squareFour == "X") {
-					if (squareFive == "X" && squareSix == null) {
-						squareSix = "O";
-					} else if (squareSix == "X" && squareFive == null) {
-						squareFive = "O";
-					} else if (squareSeven == "X" && squareOne == null) {
-						squareOne = "O";
-					} else {
-					}
-				} else if (squareFive == "X") {
-					if (squareSix == "X" && squareFour == null) {
-						squareFour = "O";
-					} else if (squareSeven == "X" && squareThree == null) {
-						squareThree = "O";
-					} else if (squareEight == "X" && squareTwo == null) {
-						squareTwo = "O";
-					} else if (squareNine == "X" && squareOne == null) {
-						squareOne = "O";
-					} else {
-					}
-				} else if (squareSix == "X") {
-					if (squareNine == "X" && squareThree == null) {
-						squareThree = "O";
-					} else {
-					}
-				} else if (squareSeven == "X") {
-					if (squareEight == "X" && squareNine == null) {
-						squareNine = "O";
-					} else if (squareNine == "X" && squareEight == null) {
-						squareEight = "O";
-					} else {
-					}
-				} else if (squareEight == "X") {
-					if (squareNine == "X" && squareSeven == null) {
-						squareSeven = "O";
-					} else {
-					}
-				} else {
-//						ENTER RANDOM SQUARE
-				}
-			}
+
+				// For blocking defensive moves
+				if (squareOne == "X" && squareTwo == "X" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareOne == "X" && squareThree == "X" && squareTwo == 0) {
+					setSquareTwo("O");
+				} else if (squareOne == "X" && squareFour == "X" && squareSeven == 0) {
+					setSquareSeven("O");
+				} else if (squareOne == "X" && squareSeven == "X" && squareFour == 0) {
+					setSquareFour("O");
+				} else if (squareOne == "X" && squareFive == "X" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareOne == "X" && squareNine == "X" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareTwo == "X" && squareThree == "X" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareTwo == "X" && squareFive == "X" && squareEight == 0) {
+					setSquareEight("O");
+				} else if (squareTwo == "X" && squareEight == "X" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareThree == "X" && squareFive == "X" && squareSeven == 0) {
+					setSquareSeven("O");
+				} else if (squareThree == "X" && squareSix == "X" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareThree == "X" && squareSeven == "X" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareThree == "X" && squareNine == "X" && squareSix == 0) {
+					setSquareSix("O");
+				} else if (squareFour == "X" && squareFive == "X" && squareSix == 0) {
+					setSquareSix("O");
+				} else if (squareFour == "X" && squareSix == "X" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareFour == "X" && squareSeven == "X" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareFive == "X" && squareSix == "X" && squareFour == 0) {
+					setSquareFour("O");
+				} else if (squareFive == "X" && squareSeven == "X" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareFive == "X" && squareEight == "X" && squareTwo == 0) {
+					setSquareTwo("O");
+				} else if (squareFive == "X" && squareNine == "X" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareSix == "X" && squareNine == "X" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareSeven == "X" && squareEight == "X" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareSeven == "X" && squareNine == "X" && squareEight == 0) {
+					setSquareEight("O");
+				} else if (squareEight == "X" && squareNine == "X" && squareSeven == 0) {
+					setSquareSeven("O");
+
 			
+				// For offensive moves
+				} else if (squareOne == "O" && squareTwo == "O" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareOne == "O" && squareThree == "O" && squareTwo == 0) {
+					setSquareTwo("O");
+				} else if (squareOne == "O" && squareFour == "O" && squareSeven == 0) {
+					setSquareSeven("O");
+				} else if (squareOne == "O" && squareSeven == "O" && squareFour == 0) {
+					setSquareFour("O");
+				} else if (squareOne == "O" && squareFive == "O" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareOne == "O" && squareNine == "O" && squareFive == 0) {
+					setSquareFive("O");
+                                } else if (squareTwo == "O" && squareThree == "O" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareTwo == "O" && squareFive == "O" && squareEight == 0) {
+					setSquareEight("O");
+				} else if (squareTwo == "O" && squareEight == "O" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareThree == "O" && squareFive == "O" && squareSeven == 0) {
+					setSquareSeven("O");
+				} else if (squareThree == "O" && squareSix == "O" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareThree == "O" && squareSeven == "O" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareThree == "O" && squareNine == "O" && squareSix == 0) {
+					setSquareSix("O");
+                                } else if (squareFour == "O" && squareFive == "O" && squareSix == 0) {
+					setSquareSix("O");
+				} else if (squareFour == "O" && squareSix == "O" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareFour == "O" && squareSeven == "O" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareFive == "O" && squareSix == "O" && squareFour == 0) {
+					setSquareFour("O");
+				} else if (squareFive == "O" && squareSeven == "O" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareFive == "O" && squareEight == "O" && squareTwo == 0) {
+					setSquareTwo("O");
+				} else if (squareFive == "O" && squareNine == "O" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareSix == "O" && squareNine == "O" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareSeven == "O" && squareEight == "O" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareSeven == "O" && squareNine == "O" && squareEight == 0) {
+					setSquareEight("O");
+				} else if (squareEight == "O" && squareNine == "O" && squareSeven == 0) {
+					setSquareSeven("O");
 
-				squareNine = "X";
-				rowThree.push("X");
-				columnThree.push("X");
-				diagonalOne.push("X");
-				document.getElementById("divSquareNine").innerHTML = squareNine; 
-				winCheck();
+
+
+				// For randomised moves
+				} else {
+                                	if (randomSelect == 0) {
+						if (randomNumber == 0) {
+	                                              	setSquareOne("O");
+	                                      	} else if (randomNumber == 1) {
+	                                              	setSquareTwo("O");
+	                                      	} else if (randomNumber == 2) {
+	                                              	setSquareThree("O");
+	                                      	} else if (randomNumber == 3) {
+	                                              	setSquareFour("O");
+	                                      	} else if (randomNumber == 4) {
+	                                              	setSquareFive("O");
+	                                      	} else if (randomNumber == 5) {
+	                                              	setSquareSix("O");
+	                                      	} else if (randomNumber == 6) {
+	                                              	setSquareSeven("O");
+	                                      	} else if (randomNumber == 7) {
+	                                              	setSquareEight("O");
+	                                        } else {
+	                                         	setSquareNine("O");
+	                                        }
+					} else {
+	                                      	computerResponse();
+	                                }
 			}
-
-
-
-
-
-
-
-
-
-
-
+				winCheck("O");
+			}
 
 
 
@@ -269,19 +312,19 @@
 		
 		<table>
 			<tr>
-				<td><div id="divSquareOne" onclick="setSquareOne()"></div></td>
-				<td><div id="divSquareTwo" onclick="setSquareTwo()"></div></td>
-				<td><div id="divSquareThree" onclick="setSquareThree()"></div></td>
+				<td><div id="divSquareOne" onclick="setSquareOne('X')"></div></td>
+				<td><div id="divSquareTwo" onclick="setSquareTwo('X')"></div></td>
+				<td><div id="divSquareThree" onclick="setSquareThree('X')"></div></td>
 			</tr>
                         <tr>
-				<td><div id="divSquareFour" onclick="setSquareFour()"></div></td>
-				<td><div id="divSquareFive" onclick="setSquareFive()"></div></td>
-				<td><div id="divSquareSix" onclick="setSquareSix()"></div></td>
+				<td><div id="divSquareFour" onclick="setSquareFour('X')"></div></td>
+				<td><div id="divSquareFive" onclick="setSquareFive('X')"></div></td>
+				<td><div id="divSquareSix" onclick="setSquareSix('X')"></div></td>
 			</tr>
                         <tr>
-				<td><div id="divSquareSeven" onclick="setSquareSeven()"></div></td>
-				<td><div id="divSquareEight" onclick="setSquareEight()"></div></td>
-				<td><div id="divSquareNine" onclick="setSquareNine()"></div></td>
+				<td><div id="divSquareSeven" onclick="setSquareSeven('X')"></div></td>
+				<td><div id="divSquareEight" onclick="setSquareEight('X')"></div></td>
+				<td><div id="divSquareNine" onclick="setSquareNine('X')"></div></td>
                         </tr>
 
 
