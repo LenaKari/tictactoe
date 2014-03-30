@@ -11,6 +11,12 @@
 	<body>
 
 		<script>
+			// For counting moves
+			var moveNumber = 0
+			var moveCount = function () {
+				moveNumber = moveNumber + 1;
+				return moveNumber;
+			}
 
 			// Arrays for calculating moves and game status.
 			var rowOne = new Array ();
@@ -27,10 +33,12 @@
 			var squareOne
 			var setSquareOne = function() {
 				squareOne = "X";
-				rowOne.push ("X");
-				columnOne.push("X");
-				diagonalOne.push("X");
+				rowOne.push(squareOne);
+				columnOne.push(squareOne);
+				diagonalOne.push(squareOne);
 				document.getElementById("divSquareOne").innerHTML = squareOne;	
+				winCheck();
+
 			}
 			
 			var squareTwo
@@ -39,6 +47,7 @@
 				rowOne.push ("X");
 				columnTwo.push("X");
                         	document.getElementById("divSquareTwo").innerHTML = squareTwo; 
+				winCheck();
 			}
 
 			var squareThree
@@ -48,6 +57,7 @@
 				columnThree.push("X");
 				diagonalTwo.push("X");
                         	document.getElementById("divSquareThree").innerHTML = squareThree; 
+				winCheck();
 			}
 
 			var squareFour
@@ -56,6 +66,7 @@
 				rowTwo.push("X");
 				columnOne.push("X");
                         	document.getElementById("divSquareFour").innerHTML = squareFour; 
+				winCheck();
 			}
 
 			var squareFive
@@ -66,6 +77,7 @@
 				diagonalOne.push("X");
 				diagonalTwo.push("X");
                         	document.getElementById("divSquareFive").innerHTML = squareFive; 
+				winCheck();
 			}
 
 			var squareSix
@@ -74,6 +86,7 @@
 				rowTwo.push("X");
 				columnThree.push("X");
                         	document.getElementById("divSquareSix").innerHTML = squareSix; 
+				winCheck();
 			}
 
 			var squareSeven
@@ -83,6 +96,7 @@
 				columnOne.push("X");
 				diagonalTwo.push("X");
 	                        document.getElementById("divSquareSeven").innerHTML = squareSeven; 
+				winCheck();
 			}
 
 			var squareEight
@@ -91,6 +105,7 @@
 				rowThree.push("X");
 				columnTwo.push("X");
 	                        document.getElementById("divSquareEight").innerHTML = squareEight; 
+				winCheck();
 			}
 
 			var squareNine
@@ -100,9 +115,62 @@
 				columnThree.push("X");
 				diagonalOne.push("X");
 	                        document.getElementById("divSquareNine").innerHTML = squareNine; 
+				winCheck();
 			}
 
 			
+			
+			// Checking arrays for a winner
+			Array.prototype.AllValuesSame = function() {
+				if(this.length > 0) {
+					for(var i = 1; i < this.length; i++) {
+						if(this[i] !== this[0])
+							return false;
+					}
+				}
+				return true;
+			}
+
+			var winCheck = function() {
+				moveCount();
+                                if (rowOne.length === 3 && rowOne.AllValuesSame() == true) {
+					alert(rowOne[0] + " is the winner!");
+				} else if (rowTwo.length === 3 && rowTwo.AllValuesSame() == true) {
+					alert(rowTwo[0] + " is the winner!");
+				} else if (rowThree.length === 3 && rowThree.AllValuesSame() == true) {
+					alert(rowThree[0] + " is the winner!");
+                                } else if (columnOne.length === 3 && columnOne.AllValuesSame() == true) {
+					alert(columnOne[0] + " is the winner!");
+                                } else if (columnTwo.length === 3 && columnTwo.AllValuesSame() == true) {
+					alert(columnTwo[0] + " is the winner!");
+                                } else if (columnThree.length === 3 && columnThree.AllValuesSame() == true) {
+					alert(columnThree[0] + " is the winner!");
+                                } else if (diagonalOne.length === 3 && diagonalOne.AllValuesSame() == true) {
+					alert(diagonalOne[0] + " is the winner!");
+                                } else if (diagonalTwo.length === 3 && diagonalTwo.AllValuesSame() == true) {
+					alert(diagonalTwo[0] + " is the winner!");
+				} else if (moveCount === 9) {
+					alert("It's a draw!");
+				} else {
+					alert("Not finished");
+				}
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		</script>
