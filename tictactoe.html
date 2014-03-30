@@ -68,18 +68,6 @@
 			}
 
 		
-			// To clear all divs and restart game.	
-			var clearAllSquares = function() {
-				squareOne = "";
-				squareTwo = "";
-				squareThree = "";
-				squareFour = "";
-				squareFive = "";
-				squareSix = "";
-				squareSeven = "";
-				squareEight = "";
-				squareNine = "";
-			}
 
 
 		</script>
@@ -112,9 +100,8 @@
 		</table>
 
 
-		<!-- To clear all divs and restart game. -->
 		<br><br>
-		<button onclick="clearAllSquares()" class="button">
+		<button class="button" onclick="history.go(0)" value="Refresh">
 		<strong>Start again!</strong>
 		</button>
 
