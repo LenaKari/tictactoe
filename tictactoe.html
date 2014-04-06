@@ -166,59 +166,9 @@
 				var randomSelect = allSquares[randomNumber];
 
 
-				// For blocking defensive moves
-				if (squareOne == "X" && squareTwo == "X" && squareThree == 0) {
-					setSquareThree("O");
-				} else if (squareOne == "X" && squareThree == "X" && squareTwo == 0) {
-					setSquareTwo("O");
-				} else if (squareOne == "X" && squareFour == "X" && squareSeven == 0) {
-					setSquareSeven("O");
-				} else if (squareOne == "X" && squareSeven == "X" && squareFour == 0) {
-					setSquareFour("O");
-				} else if (squareOne == "X" && squareFive == "X" && squareNine == 0) {
-					setSquareNine("O");
-				} else if (squareOne == "X" && squareNine == "X" && squareFive == 0) {
-					setSquareFive("O");
-				} else if (squareTwo == "X" && squareThree == "X" && squareOne == 0) {
-					setSquareOne("O");
-				} else if (squareTwo == "X" && squareFive == "X" && squareEight == 0) {
-					setSquareEight("O");
-				} else if (squareTwo == "X" && squareEight == "X" && squareFive == 0) {
-					setSquareFive("O");
-				} else if (squareThree == "X" && squareFive == "X" && squareSeven == 0) {
-					setSquareSeven("O");
-				} else if (squareThree == "X" && squareSix == "X" && squareNine == 0) {
-					setSquareNine("O");
-				} else if (squareThree == "X" && squareSeven == "X" && squareFive == 0) {
-					setSquareFive("O");
-				} else if (squareThree == "X" && squareNine == "X" && squareSix == 0) {
-					setSquareSix("O");
-				} else if (squareFour == "X" && squareFive == "X" && squareSix == 0) {
-					setSquareSix("O");
-				} else if (squareFour == "X" && squareSix == "X" && squareFive == 0) {
-					setSquareFive("O");
-				} else if (squareFour == "X" && squareSeven == "X" && squareOne == 0) {
-					setSquareOne("O");
-				} else if (squareFive == "X" && squareSix == "X" && squareFour == 0) {
-					setSquareFour("O");
-				} else if (squareFive == "X" && squareSeven == "X" && squareThree == 0) {
-					setSquareThree("O");
-				} else if (squareFive == "X" && squareEight == "X" && squareTwo == 0) {
-					setSquareTwo("O");
-				} else if (squareFive == "X" && squareNine == "X" && squareOne == 0) {
-					setSquareOne("O");
-				} else if (squareSix == "X" && squareNine == "X" && squareThree == 0) {
-					setSquareThree("O");
-				} else if (squareSeven == "X" && squareEight == "X" && squareNine == 0) {
-					setSquareNine("O");
-				} else if (squareSeven == "X" && squareNine == "X" && squareEight == 0) {
-					setSquareEight("O");
-				} else if (squareEight == "X" && squareNine == "X" && squareSeven == 0) {
-					setSquareSeven("O");
-
 			
 				// For offensive moves
-				} else if (squareOne == "O" && squareTwo == "O" && squareThree == 0) {
+				if (squareOne == "O" && squareTwo == "O" && squareThree == 0) {
 					setSquareThree("O");
 				} else if (squareOne == "O" && squareThree == "O" && squareTwo == 0) {
 					setSquareTwo("O");
@@ -266,6 +216,60 @@
 					setSquareEight("O");
 				} else if (squareEight == "O" && squareNine == "O" && squareSeven == 0) {
 					setSquareSeven("O");
+
+
+
+                                // For blocking defensive moves
+				} else if (squareOne == "X" && squareTwo == "X" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareOne == "X" && squareThree == "X" && squareTwo == 0) {
+					setSquareTwo("O");
+				} else if (squareOne == "X" && squareFour == "X" && squareSeven == 0) {
+					setSquareSeven("O");
+				} else if (squareOne == "X" && squareSeven == "X" && squareFour == 0) {
+					setSquareFour("O");
+				} else if (squareOne == "X" && squareFive == "X" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareOne == "X" && squareNine == "X" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareTwo == "X" && squareThree == "X" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareTwo == "X" && squareFive == "X" && squareEight == 0) {
+					setSquareEight("O");
+				} else if (squareTwo == "X" && squareEight == "X" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareThree == "X" && squareFive == "X" && squareSeven == 0) {
+					setSquareSeven("O");
+				} else if (squareThree == "X" && squareSix == "X" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareThree == "X" && squareSeven == "X" && squareFive == 0) {
+					setSquareFive("O");
+                                } else if (squareThree == "X" && squareNine == "X" && squareSix == 0) {
+					setSquareSix("O");
+				} else if (squareFour == "X" && squareFive == "X" && squareSix == 0) {
+					setSquareSix("O");
+				} else if (squareFour == "X" && squareSix == "X" && squareFive == 0) {
+					setSquareFive("O");
+				} else if (squareFour == "X" && squareSeven == "X" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareFive == "X" && squareSix == "X" && squareFour == 0) {
+					setSquareFour("O");
+				} else if (squareFive == "X" && squareSeven == "X" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareFive == "X" && squareEight == "X" && squareTwo == 0) {
+					setSquareTwo("O");
+				} else if (squareFive == "X" && squareNine == "X" && squareOne == 0) {
+					setSquareOne("O");
+				} else if (squareSix == "X" && squareNine == "X" && squareThree == 0) {
+					setSquareThree("O");
+				} else if (squareSeven == "X" && squareEight == "X" && squareNine == 0) {
+					setSquareNine("O");
+				} else if (squareSeven == "X" && squareNine == "X" && squareEight == 0) {
+					setSquareEight("O");
+				} else if (squareEight == "X" && squareNine == "X" && squareSeven == 0) {
+					setSquareSeven("O");
+
+
 
 
 
