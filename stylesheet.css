@@ -1,5 +1,6 @@
 body {
 	font-family: Courier;
+	font-size: 12px;
 }
 
 table {
@@ -24,10 +25,11 @@ tr:last-child td {
 
 
 div {
-	height: 450px;
-	width: 450px;
+	height: 470px;
+	width: 470px;
 	background-color: white;
-	border: none;
+	border: 2px solid black;
+	border-radius: 5px;
 	vertical-align: middle;
 	text-align: center;
 }
