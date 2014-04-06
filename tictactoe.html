@@ -14,7 +14,7 @@
 		<p>Click on a square to make a move, or select the button to start again.</p>
 
 		<script>
-		// For counting moves
+			// For counting moves
 			var moveNumber = 0
 			var moveCount = function () {
 				moveNumber = moveNumber + 1;
@@ -222,7 +222,7 @@
 
 
 
-                                // For blocking defensive moves
+                                // For defensive moves
 				} else if (squareOne == "X" && squareTwo == "X" && squareThree == 0) {
 					setSquareThree("O");
 				} else if (squareOne == "X" && squareThree == "X" && squareTwo == 0) {
@@ -274,8 +274,6 @@
 
 
 
-
-
 				// For randomised moves
 				} else {
                                 	if (randomSelect == 0) {
@@ -306,17 +304,11 @@
 
 
 
-
 		</script>
 
 
 
-
-
-
-
 		<div>	
-
 
 			<table>
 				<tr>
@@ -334,7 +326,6 @@
 					<td><div id="divSquareEight" onclick="setSquareEight('X')"></div></td>
 					<td><div id="divSquareNine" onclick="setSquareNine('X')"></div></td>
                         	</tr>
-
 
 			</table>
 
