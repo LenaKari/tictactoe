@@ -22,13 +22,16 @@ tr:last-child td {
 	border-bottom: 0px;
 }
 
+
 div {
-	height: 150px;
-	width: 150px;
+	height: 450px;
+	width: 450px;
 	background-color: white;
 	border: none;
-	cursor: pointer;
+	vertical-align: middle;
+	text-align: center;
 }
+
 
 .button {
 	background-color: #33cc33 ;
@@ -37,44 +40,80 @@ div {
 	line-height: 20px ;
 	border: 2px solid black;
 	text-align: center ;
-	vertical-align: midde ;
+	vertical-align: middle ;
 	border-radius: 5px;
 	cursor: Pointer ;
 }
 
 #divSquareOne {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #divSquareTwo {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #divSquareThree {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #divSquareFour {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #divSquareFive {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #divSquareSix {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #divSquareSeven {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #divSquareEight {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #divSquareNine {
-
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
 }
 
