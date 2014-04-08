@@ -5,104 +5,136 @@
 				return moveNumber;
 			}
 
-			// Arrays for calculating moves and game status.
-			var rowOne = new Array ();
-			var rowTwo = new Array ();
-			var rowThree = new Array ();
-			var columnOne = new Array ();
-			var columnTwo = new Array ();
-			var columnThree = new Array ();
-			var diagonalOne = new Array ();
-			var diagonalTwo = new Array ();
+			// Array containing all the contents currently on the board.
+			var tableContents = [[0,0,0],[0,0,0],[0,0,0]]
 			
 
 			// Declaring, setting and displaying each square.
-			var squareOne = 0;
 			var setSquareOne = function(input) {
-				squareOne = input;
-				rowOne.push(squareOne);
-				columnOne.push(squareOne);
-				diagonalOne.push(squareOne);
-				document.getElementById("divSquareOne").innerHTML = squareOne;	
-				winCheck(squareOne);
+				if(tableContents[0][0] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[0][0] = 1;
+					} else {
+						tableContents[0][0] = 4;
+					};
+					document.getElementById("divSquareOne").innerHTML = input;	
+					winCheck(input); 
+				}
 
 			}
 			
-			var squareTwo = 0;
                         var setSquareTwo = function(input) {
-				squareTwo = input;
-				rowOne.push (squareTwo);
-				columnTwo.push(squareTwo);
-                        	document.getElementById("divSquareTwo").innerHTML = squareTwo; 
-				winCheck(squareTwo);
-			}
+                                if(tableContents[0][1] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[0][1] = 1;
+					} else {
+						tableContents[0][1] = 4;
+					};
+					document.getElementById("divSquareTwo").innerHTML = input; 
+					winCheck(input);
+				}
+			}	
 
-			var squareThree = 0;
 			var setSquareThree = function(input) {
-				squareThree = input;
-				rowOne.push(squareThree);
-				columnThree.push(squareThree);
-				diagonalTwo.push(squareThree);
-                        	document.getElementById("divSquareThree").innerHTML = squareThree; 
-				winCheck(squareThree);
+                                if(tableContents[0][2] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[0][2] = 1;
+					} else {
+						tableContents[0][2] = 4;
+					};
+                        		document.getElementById("divSquareThree").innerHTML = input; 
+					winCheck(input);
+				}
 			}
 
-			var squareFour = 0;
 			var setSquareFour = function(input) {
-				squareFour = input;
-				rowTwo.push(squareFour);
-				columnOne.push(squareFour);
-                        	document.getElementById("divSquareFour").innerHTML = squareFour; 
-				winCheck(squareFour);
+                                if(tableContents[1][0] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[1][0] = 1;
+					} else {
+						tableContents[1][0] = 4;
+					};
+                        		document.getElementById("divSquareFour").innerHTML = input; 
+					winCheck(input);
+				}
 			}
 
-			var squareFive = 0;
 			var setSquareFive = function(input) {
-				squareFive = input;
-				rowTwo.push(squareFive);
-				columnTwo.push(squareFive);
-				diagonalOne.push(squareFive);
-				diagonalTwo.push(squareFive);
-                        	document.getElementById("divSquareFive").innerHTML = squareFive; 
-				winCheck(squareFive);
+                                if(tableContents[1][1] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[1][1] = 1;
+					} else {
+						tableContents[1][1] = 4;
+					};
+                        		document.getElementById("divSquareFive").innerHTML = input; 
+					winCheck(input);
+				}
 			}
 
-			var squareSix = 0;
 			var setSquareSix = function(input) {
-				squareSix = input;
-				rowTwo.push(squareSix);
-				columnThree.push(squareSix);
-                        	document.getElementById("divSquareSix").innerHTML = squareSix; 
-				winCheck(squareSix);
+                                if(tableContents[1][2] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[1][2] = 1;
+					} else {
+						tableContents[1][2] = 4;
+					};
+                        		document.getElementById("divSquareSix").innerHTML = input; 
+					winCheck(input);
+				}
 			}
 
-			var squareSeven = 0;
 			var setSquareSeven = function(input) {
-				squareSeven = input;
-				rowThree.push(squareSeven);
-				columnOne.push(squareSeven);
-				diagonalTwo.push(squareSeven);
-	                        document.getElementById("divSquareSeven").innerHTML = squareSeven; 
-				winCheck(squareSeven);
+                                if(tableContents[2][0] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[2][0] = 1;
+					} else {
+						tableContents[2][0] = 4;
+					};
+	                        	document.getElementById("divSquareSeven").innerHTML = input; 
+					winCheck(input);
+				}
 			}
 
-			var squareEight = 0;
 			var setSquareEight = function(input) {
-				squareEight = input;
-				rowThree.push(squareEight);
-				columnTwo.push(squareEight);
-	                        document.getElementById("divSquareEight").innerHTML = squareEight; 
-				winCheck(squareEight);
+                                if(tableContents[2][1] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[2][1] = 1;
+					} else {
+						tableContents[2][1] = 4;
+					};
+	                        	document.getElementById("divSquareEight").innerHTML = input; 
+					winCheck(input);
+				}
 			}
 
-			var squareNine = 0;
 			var setSquareNine = function(input) {
-				squareNine = input;
-				rowThree.push(squareNine);
-				columnThree.push(squareNine);
-				diagonalOne.push(squareNine);
-	                        document.getElementById("divSquareNine").innerHTML = squareNine; 
-				winCheck(squareNine);
+                                if(tableContents[2][2] !== 0){
+					alert("This square is not empty. Please make another move.");
+				} else {
+					if(input == "X") {
+						tableContents[2][2] = 1;
+					} else {
+						tableContents[2][2] = 4;
+					};
+	                        	document.getElementById("divSquareNine").innerHTML = input; 
+					winCheck(input);
+				}
 			}
 
 			
