@@ -10,150 +10,29 @@
 			var tableDisplay = [[" "," "," "],[" "," "," "],[" "," "," "]]			
 
 			// Setting and displaying each square.
-			var setSquareOne = function(input) {
-				if(tableContents[0][0] !== 0){
-					alert("This square is not empty. Please make another move.");
-				} else {
-					if(input == "X") {
-						tableContents[0][0] = 1;
-						tableDisplay[0][0] = "X";
-					} else {
-						tableContents[0][0] = 4;
-                                                tableDisplay[0][0] = "O";
-					};
-					document.getElementById("divSquareOne").innerHTML = tableDisplay[0][0];	
-					winCheck(input); 
-				}
-
-			}
+			document.getElementById('divSquareOne').innerHTML = tableDisplay[0][0];
+			document.getElementById('divSquareTwo').innerHTML = tableDisplay[0][1];
+			document.getElementById('divSquareThree').innerHTML = tableDisplay[0][2];
+			document.getElementById('divSquareFour').innerHTML = tableDisplay[1][0];
+			document.getElementById('divSquareFive').innerHTML = tableDisplay[1][1];
+			document.getElementById('divSquareSix').innerHTML = tableDisplay[1][2];
+			document.getElementById('divSquareSeven').innerHTML = tableDisplay[2][0];
+			document.getElementById('divSquareEight').innerHTML = tableDisplay[2][1];
+			document.getElementById('divSquareNine').innerHTML = tableDisplay[2][2];
 			
-                        var setSquareTwo = function(input) {
-                                if(tableContents[0][1] !== 0){
+
+			var setSquare = function(x, y, input) {
+				if (tableContents[x][y] !== 0){
 					alert("This square is not empty. Please make another move.");
 				} else {
-					if(input == "X") {
-						tableContents[0][1] = 1;
-                                                tableDisplay[0][1] = "X";
+					if (input == "X") {
+						tableContents[x][y] = 1;
+						tableDisplay[x][y] = "X";
 					} else {
-						tableContents[0][1] = 4;
-                                                tableDisplay[0][1] = "O";
-
+						tableContents[x][y] = 4;
+						tableDisplay[x][y] = "O";
 					};
-					document.getElementById("divSquareTwo").innerHTML = tableDisplay[0][1]; 
-					winCheck(input);
-				}
-			}	
 
-			var setSquareThree = function(input) {
-                                if(tableContents[0][2] !== 0){
-					alert("This square is not empty. Please make another move.");
-				} else {
-					if(input == "X") {
-						tableContents[0][2] = 1;
-                                                tableDisplay[0][2] = "X";
-
-					} else {
-						tableContents[0][2] = 4;
-                                                tableDisplay[0][2] = "O";
-
-					};
-                        		document.getElementById("divSquareThree").innerHTML = tableDisplay[0][2]; 
-					winCheck(input);
-				}
-			}
-
-			var setSquareFour = function(input) {
-                                if(tableContents[1][0] !== 0){
-					alert("This square is not empty. Please make another move.");
-				} else {
-					if(input == "X") {
-						tableContents[1][0] = 1;
-                                                tableDisplay[1][0] = "X";
-					} else {
-						tableContents[1][0] = 4;
-                                                tableDisplay[1][0] = "O";
-					};
-                        		document.getElementById("divSquareFour").innerHTML = tableDisplay[1][0]; 
-					winCheck(input);
-				}
-			}
-
-			var setSquareFive = function(input) {
-                                if(tableContents[1][1] !== 0){
-					alert("This square is not empty. Please make another move.");
-				} else {
-					if(input == "X") {
-						tableContents[1][1] = 1;
-                                                tableDisplay[1][1] = "X";
-					} else {
-						tableContents[1][1] = 4;
-                                                tableDisplay[1][1] = "O";
-					};
-                        		document.getElementById("divSquareFive").innerHTML = tableDisplay[1][1]; 
-					winCheck(input);
-				}
-			}
-
-			var setSquareSix = function(input) {
-                                if(tableContents[1][2] !== 0){
-					alert("This square is not empty. Please make another move.");
-				} else {
-					if(input == "X") {
-						tableContents[1][2] = 1;
-                                                tableDisplay[1][2] = "X";
-					} else {
-						tableContents[1][2] = 4;
-                                                tableDisplay[1][2] = "O";
-					};
-                        		document.getElementById("divSquareSix").innerHTML = tableDisplay[1][2]; 
-					winCheck(input);
-				}
-			}
-
-			var setSquareSeven = function(input) {
-                                if(tableContents[2][0] !== 0){
-					alert("This square is not empty. Please make another move.");
-				} else {
-					if(input == "X") {
-						tableContents[2][0] = 1;
-                                                tableDisplay[2][0] = "X";
-					} else {
-						tableContents[2][0] = 4;
-                                                tableDisplay[2][0] = "O";
-					};
-	                        	document.getElementById("divSquareSeven").innerHTML = tableDisplay[2][0]; 
-					winCheck(input);
-				}
-			}
-
-			var setSquareEight = function(input) {
-                                if(tableContents[2][1] !== 0){
-					alert("This square is not empty. Please make another move.");
-				} else {
-					if(input == "X") {
-						tableContents[2][1] = 1;
-                                                tableDisplay[2][1] = "X";
-					} else {
-						tableContents[2][1] = 4;
-                                                tableDisplay[2][1] = "O";
-					};
-	                        	document.getElementById("divSquareEight").innerHTML = tableDisplay[2][1]; 
-					winCheck(input);
-				}
-			}
-
-			var setSquareNine = function(input) {
-                                if(tableContents[2][2] !== 0){
-					alert("This square is not empty. Please make another move.");
-				} else {
-					if(input == "X") {
-						tableContents[2][2] = 1;
-                                                tableDisplay[2][2] = "X";
-					} else {
-						tableContents[2][2] = 4;
-                                                tableDisplay[2][2] = "O";
-					};
-	                        	document.getElementById("divSquareNine").innerHTML = tableDisplay[2][2]; 
 					winCheck(input);
 				}
 			}
@@ -268,8 +147,7 @@
 			                        			for(var k=0; k<3; k++) {
 			                            				for (var l = 0; l < 3; l++){
 			                                				if (tableContents[k][l] === 0) {
-						                                		tableContents[k][l] = 4;
-												tableDisplay[k][l] = "O";
+												setSquare(k, l, 'O');
 						                                	} else {
 			                        			        	}
 			                            				}			
@@ -278,8 +156,7 @@
 			                        			for(var k=0; k<3; k++) {
 					                        		for(var l = 0; l < 3; l++){
 						                                	if (tableContents[k][l] === 0) {
-						                                		tableContents[k][l] = 1;
-                                                                                                tableDisplay[k][l] = "O";
+												setSquare(k, l, 'O');
 			                                				} else {
 			                                				}
 			                            				}
@@ -303,8 +180,7 @@
                 	                                                for(var k=0; k<3; k++) {
                         	                                                for (var l = 0; l < 3; l++){
                                 	                                                if (tableContents[k][l] === 0) {
-                                        	                                                tableContents[k][l] = 4;
-                                                                                                tableDisplay[k][l] = "O";
+                                        	                                                setSquare(k, l, 'O');
                                                 	                                } else {
                                                         	                        }
                                                                 	        }
@@ -313,8 +189,7 @@
                 	                                                for(var k=0; k<3; k++) {
                         	                                                for(var l = 0; l < 3; l++){
                                 	                                                if (tableContents[k][l] === 0) {
-                                        	                                                tableContents[k][l] = 1;
-                                                                                                tableDisplay[k][l] = "O";
+												setSquare(k, l, 'O');
                                                 	                                } else {
                                                         	                        }
                                                                 	        }
@@ -338,8 +213,7 @@
                 	                                	for(var k=0; k<3; k++) {
                         	                        		for (var l = 0; l < 3; l++){
                                 	                                	if (tableContents[k][l] === 0) {
-                                        	                        		tableContents[k][l] = 4;
-                                                                                        tableDisplay[k][l] = "O";
+											setSquare(k, l, 'O');
                                                 	                	} else {
                                                         	        	}
                                                        			}
@@ -348,8 +222,7 @@
                 	                                	for(var k=0; k<3; k++) {
                         	                        		for(var l = 0; l < 3; l++){
                                 	                			if (tableContents[k][l] === 0) {
-                                        	        				tableContents[k][l] = 1;
-                                                                                        tableDisplay[k][l] = "O";
+											setSquare(k, l, 'O');
                                                 				} else {
                                                 				}
                                                 			}
@@ -372,8 +245,7 @@
                 	                                        for(var k=0; k<3; k++) {
                         	                                        for (var l = 0; l < 3; l++){
                                 	                                        if (tableContents[k][l] === 0) {
-                                        	                                        tableContents[k][l] = 4;
-                                                                                        tableDisplay[k][l] = "O";
+											setSquare(k, l, 'O');
                                                 	                        } else {
                                                         	                }
                                                                 	}
@@ -382,8 +254,7 @@
                 	                                        for(var k=0; k<3; k++) {
                         	                                        for(var l = 0; l < 3; l++){
                                 	                                        if (tableContents[k][l] === 0) {
-                                        	                                        tableContents[k][l] = 1;
-                                                                                        tableDisplay[k][l] = "O";
+											setSquare(k, l, 'O');
                                                 	                        } else {
                                                         	                }
                                                                 	}
