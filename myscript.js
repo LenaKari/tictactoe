@@ -1,26 +1,15 @@
 			// For counting moves
-			var moveNumber = 0
+			var moveNumber = 0;
 			var moveCount = function () {
 				moveNumber = moveNumber + 1;
 				return moveNumber;
-			}
+			};
 
 			// Array containing all the contents currently on the board.
-			var tableContents = [[0,0,0],[0,0,0],[0,0,0]]
-			var tableDisplay = [[" "," "," "],[" "," "," "],[" "," "," "]]			
+			var tableContents = [[0,0,0],[0,0,0],[0,0,0]];
+			var tableDisplay = [[" "," "," "],[" "," "," "],[" "," "," "]];			
 
 			// Setting and displaying each square.
-			document.getElementById('divSquareOne').innerHTML = tableDisplay[0][0];
-			document.getElementById('divSquareTwo').innerHTML = tableDisplay[0][1];
-			document.getElementById('divSquareThree').innerHTML = tableDisplay[0][2];
-			document.getElementById('divSquareFour').innerHTML = tableDisplay[1][0];
-			document.getElementById('divSquareFive').innerHTML = tableDisplay[1][1];
-			document.getElementById('divSquareSix').innerHTML = tableDisplay[1][2];
-			document.getElementById('divSquareSeven').innerHTML = tableDisplay[2][0];
-			document.getElementById('divSquareEight').innerHTML = tableDisplay[2][1];
-			document.getElementById('divSquareNine').innerHTML = tableDisplay[2][2];
-			
-
 			var setSquare = function(x, y, input) {
 				if (tableContents[x][y] !== 0){
 					alert("This square is not empty. Please make another move.");
@@ -32,10 +21,18 @@
 						tableContents[x][y] = 4;
 						tableDisplay[x][y] = "O";
 					};
-
+                        		document.getElementById('divSquareOne').innerHTML = tableDisplay[0][0];
+		                        document.getElementById('divSquareTwo').innerHTML = tableDisplay[0][1];
+                		        document.getElementById('divSquareThree').innerHTML = tableDisplay[0][2];
+		                        document.getElementById('divSquareFour').innerHTML = tableDisplay[1][0];
+                		        document.getElementById('divSquareFive').innerHTML = tableDisplay[1][1];
+		                        document.getElementById('divSquareSix').innerHTML = tableDisplay[1][2];
+                		        document.getElementById('divSquareSeven').innerHTML = tableDisplay[2][0];
+		                        document.getElementById('divSquareEight').innerHTML = tableDisplay[2][1];
+                		        document.getElementById('divSquareNine').innerHTML = tableDisplay[2][2];
 					winCheck(input);
-				}
-			}
+				};
+			};
 
 			
 			
@@ -51,10 +48,10 @@
 							sumRow = sumRow + tableContents[i][j];
 							if(j === 2) {
 								if(sumRow === 3){
-									alert("You have won!" + sumRow);
+									alert("You have won!");
 									sumRow = 0;
 								} else if (sumRow === 12) {
-									alert("Better luck next time! " + sumRow);
+									alert("Better luck next time!");
 									sumRow = 0;
 								} else {
 									sumRow = 0;
@@ -64,6 +61,7 @@
 						}
 					}
 					sumRow = 0;
+					columnCheck();
 				}
 
 				// Checking all columns for wins.
@@ -73,10 +71,10 @@
 							sumRow = sumRow + tableContents[i][j];
 							if(i === 2) {
 								if(sumRow === 3){
-									alert("You have won!" + sumRow);
+									alert("You have won!");
 									sumRow = 0;
 								} else if (sumRow === 12) {
-									alert("Better luck next time! " + sumRow);
+									alert("Better luck next time!");
 									sumRow = 0;
 								} else {
 									sumRow = 0;
@@ -86,6 +84,7 @@
 						}
 					}
 					sumRow = 0;
+					leftDiagonalCheck();
 				}
 
 				// Checking first diagonal for wins.
@@ -94,10 +93,10 @@
 						sumRow = sumRow + tableContents[i][j];
 						if(i === 2) {
 							if(sumRow === 3){
-								alert("You have won!" + sumRow);
+								alert("You have won!");
 								sumRow = 0;
 							} else if (sumRow === 12) {
-								alert("Better luck next time! " + sumRow);
+								alert("Better luck next time!");
 								sumRow = 0;
 							} else {
 								sumRow = 0;
@@ -106,6 +105,7 @@
 						}
 					}
 					sumRow = 0;
+					rightDiagonalCheck();
 				}
 
 				// Checking second diagonal for wins.
@@ -114,10 +114,10 @@
 						sumRow = sumRow + tableContents[i][j];
 						if(i === 2) {
 							if(sumRow === 3){
-								alert("You have won!" + sumRow);
+								alert("You have won!");
 								sumRow = 0;
 							} else if (sumRow === 12) {
-								alert("Better luck next time! " + sumRow);
+								alert("Better luck next time!");
 								sumRow = 0;
 							} else {
 								sumRow = 0;
@@ -131,6 +131,7 @@
 					} else {
 					}
 				}
+				rowCheck();
 			}
 
 			// Determining the computer's response
@@ -163,7 +164,6 @@
 			                        			}
 			                    			} else {
 			                        			sumRow = 0;
-			                        			randomComputerMove();   
 			                    			}
 				                	}
 				            	}
@@ -196,7 +196,6 @@
 	                                                                }
         	                                                } else {
                 	                                                sumRow = 0;
-                        	                                        randomComputerMove();
                                 	                        }
                                         	        }
                                         	}
@@ -229,7 +228,6 @@
 	                                                	}
         	                                        } else {
                 	                                	sumRow = 0;
-                        	                       		randomComputerMove();
                                 	                }
                                         	}
                                 	}
@@ -261,11 +259,11 @@
 	                                                        }
         	                                        } else {
                 	                                        sumRow = 0;
-                        	                                randomComputerMove();
                                 	                }
                                         	}
 	                                }
         	                }
+				randomComputerMove();
 			}
 
 
@@ -273,7 +271,7 @@
 
 				// For randomised moves (weighted 1.7 to corners, 1.2 to centre and 0.5 to remaining spaces)
 			var randomComputerMove = function() {
-			var randomNumber = Math.random()*9;
+				var randomNumber = Math.random()*9;
                                 	if (randomNumber <= 1.7) {
 	                                	if (tableContents[0][0] == 0) {
 							setSquareOne("O");
