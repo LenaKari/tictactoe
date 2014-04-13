@@ -42,30 +42,31 @@
 				var sumRow = 0;
 
 				// Checking all rows for wins.
-				var rowCheck = function() {
+				var rowCheck = function(input) {
 					for(var i = 0; i < 3; i++) {
+						sumRow = 0;
 						for (var j = 0; j < 3; j++){
 							sumRow = sumRow + tableContents[i][j];
-							if(j === 2) {
-								if(sumRow === 3){
-									alert("You have won!");
-									sumRow = 0;
-								} else if (sumRow === 12) {
-									alert("Better luck next time!");
-									sumRow = 0;
-								} else {
-									sumRow = 0;
-								}
+						}
+						if(j === 2) {
+							if(sumRow === 3){
+								alert("You have won!");
+								sumRow = 0;
+							} else if (sumRow === 12) {
+								alert("Better luck next time!");
+								sumRow = 0;
 							} else {
+								sumRow = 0;
+								columnCheck();
 							}
+						} else {
 						}
 					}
-					sumRow = 0;
-					columnCheck();
 				}
 
+
 				// Checking all columns for wins.
-				var columnCheck = function() {
+				var columnCheck = function(input) {
 					for(var j = 0; j < 3; j++) {
 						for (var i = 0; i < 3; i++){
 							sumRow = sumRow + tableContents[i][j];
@@ -84,11 +85,11 @@
 						}
 					}
 					sumRow = 0;
-					leftDiagonalCheck();
+					leftDiagonalCheck(input);
 				}
 
 				// Checking first diagonal for wins.
-				var leftDiagonalCheck = function() {
+				var leftDiagonalCheck = function(input) {
 					for(var i = 0, j = 0; i < 3; i++, j++) {
 						sumRow = sumRow + tableContents[i][j];
 						if(i === 2) {
@@ -105,11 +106,11 @@
 						}
 					}
 					sumRow = 0;
-					rightDiagonalCheck();
+					rightDiagonalCheck(input);
 				}
 
 				// Checking second diagonal for wins.
-				var rightDiagonalCheck = function() {
+				var rightDiagonalCheck = function(input) {
 					for(var i = 0, j = 2; i < 3; i++, j--) {
 						sumRow = sumRow + tableContents[i][j];
 						if(i === 2) {
@@ -131,7 +132,7 @@
 					} else {
 					}
 				}
-				rowCheck();
+				columnCheck(input);
 			}
 
 			// Determining the computer's response
@@ -165,11 +166,13 @@
 			                    			} else {
 			                        			sumRow = 0;
 			                    			}
-				                	}
-				            	}
+				                	} else {
+							}
+						}
 				        }
+					columnCheck();
 				    }   
-
+				
 				// Checking all columns for offensive and defensive moves.
                             	var columnCheck = function() {
                             		for(var j = 0; j < 3; j++) {
@@ -197,9 +200,11 @@
         	                                                } else {
                 	                                                sumRow = 0;
                                 	                        }
-                                        	        }
+                                        	        } else {
+							}
                                         	}
                                 	}
+					leftDiagonalCheck();
                             	}   
 
 
@@ -228,9 +233,11 @@
 	                                                	}
         	                                        } else {
                 	                                	sumRow = 0;
-                                	                }
-                                        	}
+                                	                } 
+                                        	} else {
+						}
                                 	}
+					rightDiagonalCheck();
                             	}
                                
 
@@ -259,82 +266,102 @@
 	                                                        }
         	                                        } else {
                 	                                        sumRow = 0;
+								randomComputerMove();
                                 	                }
-                                        	}
+                                        	} else {
+						}
 	                                }
         	                }
-				randomComputerMove();
+				rowCheck();
 			}
 
 
 			
 
-				// For randomised moves (weighted 1.7 to corners, 1.2 to centre and 0.5 to remaining spaces)
+				// For randomised moves (weighted more heavily on corners)
 			var randomComputerMove = function() {
+//				alert("random move");
+				// Setting the square weighting
+//				var squareWeightFactor = [[2, 1, 2],[1, 1, 1],[2, 1, 2]]; // weighting of each square
+//				var totalSquareWeight = eval(squareWeightFactor.join("+")); // total weight
+//				var weightedSquares = (); // new array for holding weighted squares 
+//				var currentSquare = 0;
+//				
+//				while (currentSquare<tableContents.length) {
+//					for (i=0; i<squareWeightFactor[currentSquare]; i++)
+//						weightedSquares[weightedSquares.length] = tableContents[currentSquare]
+//						currentSquare++
+//				}
+
+
+//				var randomNumberX = Math.floor(Math.random()*2);
+//				var randomNumberY = Math.floor(Math.random()*2);
+
 				var randomNumber = Math.random()*9;
-                                	if (randomNumber <= 1.7) {
-	                                	if (tableContents[0][0] == 0) {
-							setSquareOne("O");
-						} else {
-							computerResponse();
-						}
-	                                } else if (randomNumber <= 2.2) {
-                                                if (tableContents[0][1] == 0) {
-                                                        setSquareTwo("O");
-                                                } else {
-                                                        computerResponse();
-                                                }
-
-	                                } else if (randomNumber <= 3.9) {
-                                                if (tableContents[0][2] == 0) {
-                                                        setSquareThree("O");
-                                                } else {
-                                                        computerResponse();
-                                                }
-
-					} else if (randomNumber <= 4.4) {
-                                                if (tableContents[1][0] == 0) {
-                                                        setSquareFour("O");
-                                                } else {
-                                                        computerResponse();
-                                                }
-
-	                                } else if (randomNumber <= 5.6) {
-                                                if (tableContents[1][1] == 0) {
-                                                        setSquareFive("O");
-                                                } else {
-                                                        computerResponse();
-                                                }
-
-	                                } else if (randomNumber <= 6.1) {
-                                                if (tableContents[1][2] == 0) {
-                                                        setSquareSix("O");
-                                                } else {
-                                                        computerResponse();
-                                                }
-
-	                                } else if (randomNumber <= 7.8) {
-                                                if (tableContents[2][0] == 0) {
-                                                        setSquareSeven("O");
-                                                } else {
-                                                        computerResponse();
-                                                }
-
-	                                } else if (randomNumber <= 8.3) {
-                                                if (tableContents[2][1] == 0) {
-                                                        setSquareEight("O");
-                                                } else {
-                                                        computerResponse();
-                                                }
-
-	                                } else {
-                                                if (tableContents[2][2] == 0) {
-                                                        setSquareNine("O");
-                                                } else {
-                                                        computerResponse();
-                                                }
-
-	                                }
+                                if (randomNumber <= 1.7) {
+	                               	if (tableContents[0][0] == 0) {
+						setSquare(0, 0, "O");
+					} else {
+						alert("Square One"); 
+						randomComputerMove();
+					}
+	                    	} else if (randomNumber <= 2.2) {
+                                	if (tableContents[0][1] == 0) {
+                                      		setSquare(0, 1, "O");
+                                      	} else {
+                                        	alert("Square Two"); 
+						randomComputerMove();
+                                      	}
+				} else if (randomNumber <= 3.9) {
+					if (tableContents[0][2] == 0) {
+                                        	setSquare(0, 2, "O");
+                                      	} else {
+                                        	alert("Square Three"); 
+						randomComputerMove();
+                                      	}
+				} else if (randomNumber <= 4.4) {
+                                	if (tableContents[1][0] == 0) {
+                                        	setSquare(1, 0, "O");
+                                     	} else {
+                                        	alert("Square Four"); 
+						randomComputerMove();
+                                      	}
+				} else if (randomNumber <= 5.6) {
+                                	if (tableContents[1][1] == 0) {
+                                        	setSquare(1, 1, "O");
+					} else {
+						alert("Square Five"); 
+						randomComputerMove();
+					}
+				} else if (randomNumber <= 6.1) {
+					if (tableContents[1][2] == 0) {
+						setSquare(1, 2, "O");
+					} else {
+						alert("Square Six"); 
+						randomComputerMove();
+					}
+				} else if (randomNumber <= 7.8) {
+					if (tableContents[2][0] == 0) {
+						setSquare(2, 0, "O");
+					} else {
+						alert("Square Seven"); 
+						randomComputerMove();
+					}
+				} else if (randomNumber <= 8.3) {
+					if (tableContents[2][1] == 0) {
+						setSquare(2, 1, "O");
+					} else {
+						alert("Square Eight"); 
+						randomComputerMove();
+					}		
+				} else {
+					if (tableContents[2][2] == 0) {
+						setSquare(2, 2, "O");
+					} else {
+						alert("Square Nine"); 
+						randomComputerMove();
+					}
+				}
 			}
 			
 
