@@ -45,9 +45,9 @@ var winCheck = function(input) {
     var drawCheck = function(input) {
         if (moveNumber == 9) {
             alert("It's a draw!");
-            return(true);
+            return false;
         } else {
-            return(false);	
+            return false;	
         }
     }
 
@@ -60,15 +60,14 @@ var winCheck = function(input) {
             }
             if(sumRow === 3){
                 alert("You have won!");
-                return(true);
+                return false;
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                return(true);
+                return false;
             } else {
             }
         }
         sumRow = 0;
-        return(false);
     }
 
     // Checking all columns for wins.
@@ -79,15 +78,14 @@ var winCheck = function(input) {
             }
 	        if(sumRow === 3){
 		        alert("You have won!");
-                return(true);
+                return false;
 	        } else if (sumRow === 12) {
 		        alert("Better luck next time!");
-                return(true);
+                return false;
 	        } else {
 	        }
         }
         sumRow = 0;
-        return(false);
     }
 
     // Checking first diagonal for wins.
@@ -96,15 +94,14 @@ var winCheck = function(input) {
             sumRow = sumRow + tableContents[i][j];
             if(sumRow === 3){
                 alert("You have won!");
-                return(true);
+                return false;
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                return(true);
+                return false;
             } else {
             }
         }
         sumRow = 0;
-        return(false);
     }
 
     // Checking second diagonal for wins.
@@ -113,37 +110,22 @@ var winCheck = function(input) {
             sumRow = sumRow + tableContents[i][j];
             if(sumRow === 3){
                 alert("You have won!");
-                return(true);
+                return false;
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                return(true);
+                return false;
             } else {
             }
         }
         sumRow = 0;
-        return(false);
+        return true;
     }
-    drawCheck(input);
-    if (drawCheck() == false) {
-        rowCheck(input);
-    }
-    
-    if (rowCheck() == false) {
-        columnCheck(input);
-    }
-    
-    if (columnCheck() == false) {
-        leftDiagonalCheck(input);
-    }
-    
-    if (leftDiagonalCheck() == false) {
-        rightDiagonalCheck(input);
-    }
-    if (rightDiagonalCheck() == false) {
+    if (drawCheck(input) || rowCheck(input) || columnCheck(input) || leftDiagonalCheck(input) || rightDiagonalCheck(input)) {
         if (input == "X") {
             computerResponse();
         } else {
         }
+    } else {
     }
 }
 
@@ -162,7 +144,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-			                return(true);
+			                return true;
                         } else {
                         }
                     }			
@@ -172,7 +154,7 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-			                return(true);
+			                return true;
                         } else {
                         }
                     }
@@ -181,7 +163,6 @@ var computerResponse = function() {
             }
         }
 	    sumRow = 0;
-	    return(false);
     }
 
     // Checking all columns for offensive and defensive moves.
@@ -195,7 +176,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-		            	    return(true);
+		            	    return true;
                         } else {
                         }
                     }
@@ -205,7 +186,7 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-			                return(true);
+			                return true;
                         } else {
                         }
                     }
@@ -214,7 +195,6 @@ var computerResponse = function() {
             }
         }
 	    sumRow = 0;
-	    return(false);
     }
        
 
@@ -228,7 +208,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-		            	    return(true);
+		            	    return true;
                         } else {
                         }
                     }
@@ -238,7 +218,7 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-			                return(true);
+			                return true;
                         } else {
                         }
                     }
@@ -247,7 +227,6 @@ var computerResponse = function() {
             } 
         }
 	    sumRow = 0;
-	    return(false);
     }
 
 
@@ -260,7 +239,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-			                return(true);
+			                return true;
                         } else {
                         }
                     }
@@ -270,7 +249,7 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-			                return(true);
+			                return true;
                         } else {
                         }
                     }
@@ -280,22 +259,12 @@ var computerResponse = function() {
         }
 	    sumRow = 0;
     }
-    rowCheck();
     
-    if (rowCheck() == false) {
-	    columnCheck();
-    }
-    
-    if (columnCheck() == false) {
-	    leftDiagonalCheck();
-    }
-    
-    if (leftDiagonalCheck() == false) {
-	    rightDiagonalCheck();
-    }
-
-    if (rightDiagonalCheck() == false) {
+    if (rowCheck() || columnCheck() || leftDiagonalCheck() || rightDiagonalCheck()) {
+	    winCheck("O");	
+    } else {
         randomComputerMove();
+
     }
 }
 
