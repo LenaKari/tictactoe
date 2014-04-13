@@ -302,63 +302,54 @@
 	                               	if (tableContents[0][0] == 0) {
 						setSquare(0, 0, "O");
 					} else {
-						alert("Square One"); 
 						randomComputerMove();
 					}
 	                    	} else if (randomNumber <= 2.2) {
                                 	if (tableContents[0][1] == 0) {
                                       		setSquare(0, 1, "O");
                                       	} else {
-                                        	alert("Square Two"); 
 						randomComputerMove();
                                       	}
 				} else if (randomNumber <= 3.9) {
 					if (tableContents[0][2] == 0) {
                                         	setSquare(0, 2, "O");
                                       	} else {
-                                        	alert("Square Three"); 
 						randomComputerMove();
                                       	}
 				} else if (randomNumber <= 4.4) {
                                 	if (tableContents[1][0] == 0) {
                                         	setSquare(1, 0, "O");
                                      	} else {
-                                        	alert("Square Four"); 
 						randomComputerMove();
                                       	}
 				} else if (randomNumber <= 5.6) {
                                 	if (tableContents[1][1] == 0) {
                                         	setSquare(1, 1, "O");
 					} else {
-						alert("Square Five"); 
 						randomComputerMove();
 					}
 				} else if (randomNumber <= 6.1) {
 					if (tableContents[1][2] == 0) {
 						setSquare(1, 2, "O");
 					} else {
-						alert("Square Six"); 
 						randomComputerMove();
 					}
 				} else if (randomNumber <= 7.8) {
 					if (tableContents[2][0] == 0) {
 						setSquare(2, 0, "O");
 					} else {
-						alert("Square Seven"); 
 						randomComputerMove();
 					}
 				} else if (randomNumber <= 8.3) {
 					if (tableContents[2][1] == 0) {
 						setSquare(2, 1, "O");
 					} else {
-						alert("Square Eight"); 
 						randomComputerMove();
 					}		
 				} else {
 					if (tableContents[2][2] == 0) {
 						setSquare(2, 2, "O");
 					} else {
-						alert("Square Nine"); 
 						randomComputerMove();
 					}
 				}
