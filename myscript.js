@@ -45,8 +45,9 @@ var winCheck = function(input) {
     var drawCheck = function(input) {
         if (moveNumber == 9) {
             alert("It's a draw!");
+            return(true);
         } else {
-            rowCheck(input);
+            return(false);	
         }
     }
 
@@ -59,15 +60,15 @@ var winCheck = function(input) {
             }
             if(sumRow === 3){
                 alert("You have won!");
-                sumRow = 0;
+                return(true);
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                sumRow = 0;
+                return(true);
             } else {
-                sumRow = 0;
-                columnCheck(input);
             }
         }
+        sumRow = 0;
+        return(false);
     }
 
     // Checking all columns for wins.
@@ -78,15 +79,15 @@ var winCheck = function(input) {
             }
 	        if(sumRow === 3){
 		        alert("You have won!");
-        		sumRow = 0;
+                return(true);
 	        } else if (sumRow === 12) {
 		        alert("Better luck next time!");
-		        sumRow = 0;
+                return(true);
 	        } else {
-		        sumRow = 0;
-                leftDiagonalCheck(input);
 	        }
         }
+        sumRow = 0;
+        return(false);
     }
 
     // Checking first diagonal for wins.
@@ -95,15 +96,15 @@ var winCheck = function(input) {
             sumRow = sumRow + tableContents[i][j];
             if(sumRow === 3){
                 alert("You have won!");
-                sumRow = 0;
+                return(true);
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                sumRow = 0;
+                return(true);
             } else {
-                sumRow = 0;
-                rightDiagonalCheck(input);
             }
         }
+        sumRow = 0;
+        return(false);
     }
 
     // Checking second diagonal for wins.
@@ -112,20 +113,38 @@ var winCheck = function(input) {
             sumRow = sumRow + tableContents[i][j];
             if(sumRow === 3){
                 alert("You have won!");
-                sumRow = 0;
+                return(true);
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                sumRow = 0;
+                return(true);
             } else {
-                sumRow = 0;
             }
         }
+        sumRow = 0;
+        return(false);
+    }
+    drawCheck(input);
+    if (drawCheck() == false) {
+        rowCheck(input);
+    }
+    
+    if (rowCheck() == false) {
+        columnCheck(input);
+    }
+    
+    if (columnCheck() == false) {
+        leftDiagonalCheck(input);
+    }
+    
+    if (leftDiagonalCheck() == false) {
+        rightDiagonalCheck(input);
+    }
+    if (rightDiagonalCheck() == false) {
         if (input == "X") {
             computerResponse();
         } else {
         }
     }
-    drawCheck(input);
 }
 
 // Determining the computer's response
@@ -143,6 +162,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
+			                return(true);
                         } else {
                         }
                     }			
@@ -152,15 +172,16 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
+			                return(true);
                         } else {
                         }
                     }
                 }
             } else {
-                sumRow = 0;
-                columnCheck();
             }
         }
+	    sumRow = 0;
+	    return(false);
     }
 
     // Checking all columns for offensive and defensive moves.
@@ -174,6 +195,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
+		            	    return(true);
                         } else {
                         }
                     }
@@ -183,15 +205,16 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
+			                return(true);
                         } else {
                         }
                     }
                 }
             } else {
-                sumRow = 0;
-                leftDiagonalCheck();
             }
         }
+	    sumRow = 0;
+	    return(false);
     }
        
 
@@ -205,6 +228,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
+		            	    return(true);
                         } else {
                         }
                     }
@@ -214,15 +238,16 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
+			                return(true);
                         } else {
                         }
                     }
                 }
             } else {
-                sumRow = 0;
-                rightDiagonalCheck();
             } 
         }
+	    sumRow = 0;
+	    return(false);
     }
 
 
@@ -235,6 +260,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
+			                return(true);
                         } else {
                         }
                     }
@@ -244,17 +270,33 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
+			                return(true);
                         } else {
                         }
                     }
                 }
             } else {
-                sumRow = 0;
-                console.log("Stop!"); //randomComputerMove();
             }
         }
+	    sumRow = 0;
     }
     rowCheck();
+    
+    if (rowCheck() == false) {
+	    columnCheck();
+    }
+    
+    if (columnCheck() == false) {
+	    leftDiagonalCheck();
+    }
+    
+    if (leftDiagonalCheck() == false) {
+	    rightDiagonalCheck();
+    }
+
+    if (rightDiagonalCheck() == false) {
+        randomComputerMove();
+    }
 }
 
 
@@ -262,7 +304,6 @@ var computerResponse = function() {
 
 // For randomised moves (weighted more heavily on corners)
 var randomComputerMove = function() {
-    //				alert("random move");
     // Setting the square weighting
     //				var squareWeightFactor = [[2, 1, 2],[1, 1, 1],[2, 1, 2]]; // weighting of each square
     //				var totalSquareWeight = eval(squareWeightFactor.join("+")); // total weight
