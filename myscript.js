@@ -41,16 +41,6 @@ var winCheck = function(input) {
     moveCount();
     var sumRow = 0;
 
-    // Checking for a draw.
-    var drawCheck = function(input) {
-        if (moveNumber == 9) {
-            alert("It's a draw!");
-            return false;
-        } else {
-            return false;	
-        }
-    }
-
     // Checking all rows for wins.
     var rowCheck = function(input) {
         for(var i = 0; i < 3; i++) {
@@ -60,10 +50,10 @@ var winCheck = function(input) {
             }
             if(sumRow === 3){
                 alert("You have won!");
-                return false;
+                return true;
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                return false;
+                return true;
             } else {
             }
         }
@@ -78,10 +68,10 @@ var winCheck = function(input) {
             }
 	        if(sumRow === 3){
 		        alert("You have won!");
-                return false;
+                return true;
 	        } else if (sumRow === 12) {
 		        alert("Better luck next time!");
-                return false;
+                return true;
 	        } else {
 	        }
         }
@@ -94,10 +84,10 @@ var winCheck = function(input) {
             sumRow = sumRow + tableContents[i][j];
             if(sumRow === 3){
                 alert("You have won!");
-                return false;
+                return true;
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                return false;
+                return true;
             } else {
             }
         }
@@ -110,22 +100,33 @@ var winCheck = function(input) {
             sumRow = sumRow + tableContents[i][j];
             if(sumRow === 3){
                 alert("You have won!");
-                return false;
+                return true;
             } else if (sumRow === 12) {
                 alert("Better luck next time!");
-                return false;
+                return true;
             } else {
             }
         }
         sumRow = 0;
-        return true;
     }
-    if (drawCheck(input) || rowCheck(input) || columnCheck(input) || leftDiagonalCheck(input) || rightDiagonalCheck(input)) {
+
+    // Checking for a draw.
+    var drawCheck = function(input) {
+        if (moveNumber == 9) {
+            alert("It's a draw!");
+            return true;
+        } else {
+        }
+    }
+
+
+    if (rowCheck(input) || columnCheck(input) || leftDiagonalCheck(input) || rightDiagonalCheck(input) || drawCheck()) {
+        return true;
+    } else {
         if (input == "X") {
             computerResponse();
         } else {
         }
-    } else {
     }
 }
 
