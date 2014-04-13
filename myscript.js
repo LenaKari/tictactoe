@@ -30,6 +30,7 @@ var setSquare = function(x, y, input) {
         document.getElementById('divSquareSeven').innerHTML = tableDisplay[2][0];
         document.getElementById('divSquareEight').innerHTML = tableDisplay[2][1];
         document.getElementById('divSquareNine').innerHTML = tableDisplay[2][2];
+        moveCount();
         winCheck(input);
     };
 };
@@ -38,7 +39,6 @@ var setSquare = function(x, y, input) {
 
 // Checking arrays for a winner
 var winCheck = function(input) {
-    moveCount();
     var sumRow = 0;
 
     // Checking all rows for wins.
@@ -262,7 +262,7 @@ var computerResponse = function() {
     }
     
     if (rowCheck() || columnCheck() || leftDiagonalCheck() || rightDiagonalCheck()) {
-	    winCheck("O");	
+        return true;
     } else {
         randomComputerMove();
 
