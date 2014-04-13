@@ -161,9 +161,9 @@ var computerResponse = function() {
                     }
                 }
             } else {
+                sumRow = 0;
             }
         }
-	    sumRow = 0;
     }
 
     // Checking all columns for offensive and defensive moves.
@@ -177,7 +177,7 @@ var computerResponse = function() {
                     for (var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-		            	    return true;
+                            return true;
                         } else {
                         }
                     }
@@ -187,15 +187,15 @@ var computerResponse = function() {
                     for(var l = 0; l < 3; l++){
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
-			                return true;
+                            return true;
                         } else {
                         }
                     }
                 }
             } else {
+                sumRow = 0;
             }
         }
-	    sumRow = 0;
     }
        
 
@@ -225,9 +225,9 @@ var computerResponse = function() {
                     }
                 }
             } else {
+                sumRow = 0;
             } 
         }
-	    sumRow = 0;
     }
 
 
@@ -256,9 +256,9 @@ var computerResponse = function() {
                     }
                 }
             } else {
+                sumRow = 0;
             }
         }
-	    sumRow = 0;
     }
     
     if (rowCheck() || columnCheck() || leftDiagonalCheck() || rightDiagonalCheck()) {
