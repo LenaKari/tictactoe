@@ -31,7 +31,7 @@ var moveCount = function(){
 };
 
 // Setting and displaying square.
-var setSquare = function(x, y, input, div) {
+var setSquare = function(x, y, input) {
     if (tableContents[x][y] !== 0){
         alert("This square is not empty. Please make another move.");
     } else {
@@ -42,7 +42,8 @@ var setSquare = function(x, y, input, div) {
             tableContents[x][y] = 4;
             tableDisplay[x][y] = "O";
         }
-        document.getElementById(div).innerHTML = tableDisplay[x][y];
+	var setDiv = 'divSquare_' + x + y;
+        document.getElementById(setDiv).innerHTML = tableDisplay[x][y];
         moveCount();
         winCheck(input);
     };
