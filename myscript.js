@@ -28,3 +28,12 @@ var moveCount() = function(){
     moveNumber += 1;
     return moveNumber;
 };
+
+// Weighting corners more heavily for random computer response.
+var weightedRows = [0, 0, 1, 2, 2];
+    
+// Randomly selecting a square.
+var randomNumberX = Math.floor(Math.random() * weightedRows.length);
+var randomNumberY = Math.floor(Math.random() * weightedRows.length);
+
+// random square would be at - (tableContents[weightedRows[randomNumberX]][weightedRows[randomNumberY]]);
