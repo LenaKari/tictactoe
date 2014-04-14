@@ -116,7 +116,7 @@ var randomComputerMove = function() {
     // Randomly selecting a square.
     var randomNumberX = Math.floor(Math.random() * weightedRows.length);
     var randomNumberY = Math.floor(Math.random() * weightedRows.length);
-    if (tableContents[weightedRows[randomNumberX]][weightedRows[randoimNumberY]] == 0) {
+    if (tableContents[weightedRows[randomNumberX]][weightedRows[randomNumberY]] == 0) {
         setSquare(randomNumberX, randomNumberY, 'O')
     } else {
         randomComputerMove();
