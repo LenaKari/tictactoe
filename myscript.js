@@ -68,6 +68,49 @@ var winCheck = function(input) {
     } 
 };
 
+// Computer's response.
+var computerResponse = function() {
+
+    // Checking for offensive and then defensive moves.
+    var computerRowCheck = function() {
+        for(var i = 0; i < 3; i++) {
+            // Offensive moves.
+            if(sumAllLines[i] == 8){
+                for(var k=0; k<3; k++) {
+                    for (var l = 0; l < 3; l++){
+                        if (tableContents[k][l] === 0) {
+                            setSquare(k, l, 'O');
+                            return true;
+                        } else {
+                        }
+                    }           
+                }
+            // Defensive moves.
+            } else if(sumAllLines[i] == 2) {
+                for(var k=0; k<3; k++) {
+                    for(var l = 0; l < 3; l++){
+                        if (tableContents[k][l] === 0) {
+                            setSquare(k, l, 'O');
+                            return true;
+                        } else {
+                        }
+                    }
+                }
+            } else {
+            }
+        }
+    }
+
+    if (computerRowCheck() == true) {
+        return true;
+    } else {
+        randomComputerMove();
+    }
+}
+
+
+
+
 // Weighting corners more heavily for random computer response.
 var weightedRows = [0, 0, 1, 2, 2];
     
