@@ -109,14 +109,16 @@ var computerResponse = function() {
     }
 }
 
-
-
-
-// Weighting corners more heavily for random computer response.
-var weightedRows = [0, 0, 1, 2, 2];
+var randomComputerMove = function() {
+    // Weighting corners more heavily for random computer response.
+    var weightedRows = [0, 0, 1, 2, 2];
     
-// Randomly selecting a square.
-var randomNumberX = Math.floor(Math.random() * weightedRows.length);
-var randomNumberY = Math.floor(Math.random() * weightedRows.length);
-
-// random square would be at - (tableContents[weightedRows[randomNumberX]][weightedRows[randoimNumberY]]);
+    // Randomly selecting a square.
+    var randomNumberX = Math.floor(Math.random() * weightedRows.length);
+    var randomNumberY = Math.floor(Math.random() * weightedRows.length);
+    if (tableContents[weightedRows[randomNumberX]][weightedRows[randoimNumberY]] == 0) {
+        setSquare(randomNumberX, randomNumberY, 'O')
+    } else {
+        randomComputerMove();
+    }
+}
