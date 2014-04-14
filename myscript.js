@@ -21,3 +21,10 @@ var sumLine4 = line4.reduce(function(a, b) {return a + b;});
 var sumLine5 = line5.reduce(function(a, b) {return a + b;});
 var sumLine6 = line6.reduce(function(a, b) {return a + b;});
 var sumLine7 = line7.reduce(function(a, b) {return a + b;});
+
+// For counting moves.
+var moveNumber = 0;
+var moveCount() = function(){
+    moveNumber += 1;
+    return moveNumber;
+};
