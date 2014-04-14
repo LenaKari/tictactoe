@@ -47,7 +47,7 @@ div {
 	cursor: Pointer ;
 }
 
-#divSquareOne {
+#divSquare_1 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
@@ -55,7 +55,7 @@ div {
 	cursor: pointer;
 }
 
-#divSquareTwo {
+#divSquare_2 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
@@ -63,7 +63,7 @@ div {
 	cursor: pointer;
 }
 
-#divSquareThree {
+#divSquare_3 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
@@ -71,7 +71,7 @@ div {
 	cursor: pointer;
 }
 
-#divSquareFour {
+#divSquare_4 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
@@ -79,7 +79,7 @@ div {
 	cursor: pointer;
 }
 
-#divSquareFive {
+#divSquare_5 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
@@ -87,7 +87,7 @@ div {
 	cursor: pointer;
 }
 
-#divSquareSix {
+#divSquare6 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
@@ -95,7 +95,7 @@ div {
 	cursor: pointer;
 }
 
-#divSquareSeven {
+#divSquare7 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
@@ -103,7 +103,7 @@ div {
 	cursor: pointer;
 }
 
-#divSquareEight {
+#divSquare8 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
@@ -111,7 +111,7 @@ div {
 	cursor: pointer;
 }
 
-#divSquareNine {
+#divSquare9 {
 	height: 150px;
 	width: 150px;
 	background-color: white;
