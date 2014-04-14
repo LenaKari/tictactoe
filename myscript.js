@@ -48,9 +48,8 @@ var setSquare = function(x, y, input, div) {
     };
 };
 
-
 // Checking for a win/draw.
-var winCheck = function() {
+var winCheck = function(input) {
     for (i = 0; i < 8; i++) {
         if (sumAllLines[i] === 12) {
             return ("Better luck next time!");
@@ -62,6 +61,10 @@ var winCheck = function() {
     if (moveNumber === 9) {
         return ("It's a draw!");
     } else {
+        if (input == "X") {
+            computerResponse();
+        } else {
+        }
     } 
 };
 
