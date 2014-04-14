@@ -25,10 +25,29 @@ var sumAllLines = [sumLine0, sumLine1,sumLine2,sumLine3,sumLine4,sumLine5,sumLin
 
 // For counting moves.
 var moveNumber = 0;
-var moveCount() = function(){
+var moveCount = function(){
     moveNumber += 1;
     return moveNumber;
 };
+
+// Setting and displaying square.
+var setSquare = function(x, y, input, div) {
+    if (tableContents[x][y] !== 0){
+        alert("This square is not empty. Please make another move.");
+    } else {
+        if (input == "X") {
+            tableContents[x][y] = 1;
+            tableDisplay[x][y] = "X";
+        } else {
+            tableContents[x][y] = 4;
+            tableDisplay[x][y] = "O";
+        }
+        document.getElementById(div).innerHTML = tableDisplay[x][y];
+        moveCount();
+        winCheck(input);
+    };
+};
+
 
 // Checking for a win/draw.
 var winCheck = function() {
