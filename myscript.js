@@ -1,0 +1,14 @@
+// Arrays containing board contents.
+var tableContents = [[0,0,0],[0,0,0],[0,0,0]];
+var tableDisplay = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]];
+
+// Declaring and setting all rows.
+var line0 = [tableContents[0][0], tableContents[0][1], tableContents[0][2]]; // Top row.
+var line1 = [tableContents[1][0], tableContents[1][1], tableContents[1][2]]; // Middle row.
+var line2 = [tableContents[2][0], tableContents[2][1], tableContents[2][2]]; // Bottom row.
+var line3 = [tableContents[0][0], tableContents[1][0], tableContents[2][0]]; // Left column.
+var line4 = [tableContents[0][1], tableContents[1][1], tableContents[2][1]]; // Center column.
+var line5 = [tableContents[0][2], tableContents[1][2], tableContents[2][2]]; // Right column.
+var line6 = [tableContents[0][0], tableContents[1][1], tableContents[2][2]]; // Diagonal from upper left to lower right.
+var line7 = [tableContents[0][2], tableContents[1][1], tableContents[2][0]]; // Diagonal from upper right to lower left.
+
