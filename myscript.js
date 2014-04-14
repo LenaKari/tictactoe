@@ -12,3 +12,12 @@ var line5 = [tableContents[0][2], tableContents[1][2], tableContents[2][2]]; // 
 var line6 = [tableContents[0][0], tableContents[1][1], tableContents[2][2]]; // Diagonal from upper left to lower right.
 var line7 = [tableContents[0][2], tableContents[1][1], tableContents[2][0]]; // Diagonal from upper right to lower left.
 
+// Summing rows.
+var sumLine0 = line0.reduce(function(a, b) {return a + b;});
+var sumLine1 = line1.reduce(function(a, b) {return a + b;});
+var sumLine2 = line2.reduce(function(a, b) {return a + b;});
+var sumLine3 = line3.reduce(function(a, b) {return a + b;});
+var sumLine4 = line4.reduce(function(a, b) {return a + b;});
+var sumLine5 = line5.reduce(function(a, b) {return a + b;});
+var sumLine6 = line6.reduce(function(a, b) {return a + b;});
+var sumLine7 = line7.reduce(function(a, b) {return a + b;});
