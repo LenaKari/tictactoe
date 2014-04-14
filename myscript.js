@@ -21,12 +21,29 @@ var sumLine4 = line4.reduce(function(a, b) {return a + b;});
 var sumLine5 = line5.reduce(function(a, b) {return a + b;});
 var sumLine6 = line6.reduce(function(a, b) {return a + b;});
 var sumLine7 = line7.reduce(function(a, b) {return a + b;});
+var sumAllLines = [sumLine0, sumLine1,sumLine2,sumLine3,sumLine4,sumLine5,sumLine6,sumLine7];
 
 // For counting moves.
 var moveNumber = 0;
 var moveCount() = function(){
     moveNumber += 1;
     return moveNumber;
+};
+
+// Checking for a win/draw.
+var winCheck = function() {
+    for (i = 0; i < 8; i++) {
+        if (sumAllLines[i] === 12) {
+            return ("Better luck next time!");
+        } else if (sumAllLines[i] === 3) {
+            return ("You've won!");
+        } else {
+        }
+    }
+    if (moveNumber === 9) {
+        return ("It's a draw!");
+    } else {
+    } 
 };
 
 // Weighting corners more heavily for random computer response.
@@ -36,4 +53,4 @@ var weightedRows = [0, 0, 1, 2, 2];
 var randomNumberX = Math.floor(Math.random() * weightedRows.length);
 var randomNumberY = Math.floor(Math.random() * weightedRows.length);
 
-// random square would be at - (tableContents[weightedRows[randomNumberX]][weightedRows[randomNumberY]]);
+// random square would be at - (tableContents[weightedRows[randomNumberX]][weightedRows[randoimNumberY]]);
