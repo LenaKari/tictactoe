@@ -21,9 +21,7 @@ var sumLine5 = line5.reduce(function(a, b) {return a + b;});
 var sumLine6 = line6.reduce(function(a, b) {return a + b;});
 var sumLine7 = line7.reduce(function(a, b) {return a + b;});
 var sumAllLines = [sumLine0, sumLine1,sumLine2,sumLine3,sumLine4,sumLine5,sumLine6,sumLine7];
-
-// For counting moves.
-var moveNumber = 0;
+var drawSum = sumLine0 + sumLine1 + sumLine2;
 
 // Setting and displaying square.
 var setSquare = function(x, y, input) {
@@ -37,7 +35,6 @@ var setSquare = function(x, y, input) {
         }
 	var setDiv = 'divSquare_' + x + y;
         document.getElementById(setDiv).innerHTML = input;
-        moveNumber++;
         winCheck(input);
     };
 };
@@ -51,7 +48,7 @@ var winCheck = function(input) {
             alert ("You've won!");
         }
     }
-    if (moveNumber == 9) {
+    if (drawSum == 21) {
         alert ("It's a draw!");
     } else {
         if (input == "X") {
