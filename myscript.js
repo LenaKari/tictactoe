@@ -52,7 +52,6 @@ var winCheck = function(input) {
             return ("Better luck next time!");
         } else if (sumAllLines[i] === 3) {
             return ("You've won!");
-        } else {
         }
     }
     if (moveNumber === 9) {
@@ -60,7 +59,6 @@ var winCheck = function(input) {
     } else {
         if (input == "X") {
             computerResponse();
-        } else {
         }
     } 
 };
@@ -78,7 +76,6 @@ var computerResponse = function() {
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
                             return true;
-                        } else {
                         }
                     }           
                 }
@@ -89,11 +86,9 @@ var computerResponse = function() {
                         if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
                             return true;
-                        } else {
                         }
                     }
                 }
-            } else {
             }
         }
     }
