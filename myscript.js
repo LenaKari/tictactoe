@@ -46,13 +46,13 @@ var setSquare = function(x, y, input) {
 var winCheck = function(input) {
     for (i = 0; i < 8; i++) {
         if (sumAllLines[i] == 12) {
-            return ("Better luck next time!");
+            alert ("Better luck next time!");
         } else if (sumAllLines[i] == 3) {
-            return ("You've won!");
+            alert ("You've won!");
         }
     }
     if (moveNumber == 9) {
-        return ("It's a draw!");
+        alert ("It's a draw!");
     } else {
         if (input == "X") {
             computerResponse();
