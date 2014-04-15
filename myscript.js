@@ -25,10 +25,6 @@ var sumAllLines = [sumLine0, sumLine1,sumLine2,sumLine3,sumLine4,sumLine5,sumLin
 
 // For counting moves.
 var moveNumber = 0;
-var moveCount = function(){
-    moveNumber += 1;
-    return moveNumber;
-};
 
 // Setting and displaying square.
 var setSquare = function(x, y, input) {
@@ -44,7 +40,7 @@ var setSquare = function(x, y, input) {
         }
 	var setDiv = 'divSquare_' + x + y;
         document.getElementById(setDiv).innerHTML = tableDisplay[x][y];
-        moveCount();
+        moveNumber++;
         winCheck(input);
     };
 };
