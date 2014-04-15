@@ -93,7 +93,7 @@ var computerResponse = function() {
         }
     }
 
-    if (computerRowCheck() == true) {
+    if (computerRowCheck()) {
         return true;
     } else {
         randomComputerMove();
