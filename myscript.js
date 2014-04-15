@@ -48,13 +48,13 @@ var setSquare = function(x, y, input) {
 // Checking for a win/draw.
 var winCheck = function(input) {
     for (i = 0; i < 8; i++) {
-        if (sumAllLines[i] === 12) {
+        if (sumAllLines[i] == 12) {
             return ("Better luck next time!");
-        } else if (sumAllLines[i] === 3) {
+        } else if (sumAllLines[i] == 3) {
             return ("You've won!");
         }
     }
-    if (moveNumber === 9) {
+    if (moveNumber == 9) {
         return ("It's a draw!");
     } else {
         if (input == "X") {
@@ -73,7 +73,7 @@ var computerResponse = function() {
             if(sumAllLines[i] == 8){
                 for(var k=0; k<3; k++) {
                     for (var l = 0; l < 3; l++){
-                        if (tableContents[k][l] === 0) {
+                        if (tableContents[k][l] == 0) {
                             setSquare(k, l, 'O');
                             return true;
                         }
@@ -83,7 +83,7 @@ var computerResponse = function() {
             } else if(sumAllLines[i] == 2) {
                 for(var k=0; k<3; k++) {
                     for(var l = 0; l < 3; l++){
-                        if (tableContents[k][l] === 0) {
+                        if (tableContents[k][l] == 0) {
                             setSquare(k, l, 'O');
                             return true;
                         }
