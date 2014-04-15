@@ -1,6 +1,5 @@
 // Arrays containing board contents.
 var tableContents = [[0,0,0],[0,0,0],[0,0,0]];
-var tableDisplay = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]];
 
 // Declaring and setting all rows.
 var line0 = [tableContents[0][0], tableContents[0][1], tableContents[0][2]]; // Top row.
@@ -33,13 +32,11 @@ var setSquare = function(x, y, input) {
     } else {
         if (input == "X") {
             tableContents[x][y] = 1;
-            tableDisplay[x][y] = "X";
         } else {
             tableContents[x][y] = 4;
-            tableDisplay[x][y] = "O";
         }
 	var setDiv = 'divSquare_' + x + y;
-        document.getElementById(setDiv).innerHTML = tableDisplay[x][y];
+        document.getElementById(setDiv).innerHTML = input;
         moveNumber++;
         winCheck(input);
     };
