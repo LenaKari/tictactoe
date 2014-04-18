@@ -28,7 +28,7 @@ var setSquare = function(x, y, input) {
     if (tableContents[x][y] !== 0){
         alert("This square is not empty. Please make another move.");
     } else {
-        if (input == "X") {
+        if (input === "X") {
             tableContents[x][y] = 1;
         } else {
             tableContents[x][y] = 4;
@@ -42,16 +42,16 @@ var setSquare = function(x, y, input) {
 // Checking for a win/draw.
 var winCheck = function(input) {
     for (i = 0; i < 8; i++) {
-        if (sumAllLines[i] == 12) {
+        if (sumAllLines[i] === 12) {
             alert ("Better luck next time!");
-        } else if (sumAllLines[i] == 3) {
+        } else if (sumAllLines[i] === 3) {
             alert ("You've won!");
         }
     }
-    if (drawSum == 21) {
+    if (drawSum === 21) {
         alert ("It's a draw!");
     } else {
-        if (input == "X") {
+        if (input === "X") {
             computerResponse();
         }
     } 
@@ -64,20 +64,20 @@ var computerResponse = function() {
     var computerRowCheck = function() {
         for(var i = 0; i < 3; i++) {
             // Offensive moves.
-            if(sumAllLines[i] == 8){
+            if(sumAllLines[i] === 8){
                 for(var k=0; k<3; k++) {
                     for (var l = 0; l < 3; l++){
-                        if (tableContents[k][l] == 0) {
+                        if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
                             return true;
                         }
                     }           
                 }
             // Defensive moves.
-            } else if(sumAllLines[i] == 2) {
+            } else if(sumAllLines[i] === 2) {
                 for(var k=0; k<3; k++) {
                     for(var l = 0; l < 3; l++){
-                        if (tableContents[k][l] == 0) {
+                        if (tableContents[k][l] === 0) {
                             setSquare(k, l, 'O');
                             return true;
                         }
@@ -101,7 +101,7 @@ var randomComputerMove = function() {
     // Randomly selecting a square.
     var randomNumberX = Math.floor(Math.random() * weightedRows.length);
     var randomNumberY = Math.floor(Math.random() * weightedRows.length);
-    if (tableContents[weightedRows[randomNumberX]][weightedRows[randomNumberY]] == 0) {
+    if (tableContents[weightedRows[randomNumberX]][weightedRows[randomNumberY]] === 0) {
         setSquare(weightedRows[randomNumberX], weightedRows[randomNumberY], 'O');
     } else {
         randomComputerMove();
