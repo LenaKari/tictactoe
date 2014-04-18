@@ -1,109 +1,177 @@
-// Arrays containing board contents.
-var tableContents = [[0,0,0],[0,0,0],[0,0,0]];
+var X = 1;
+var O = 4;
 
-// Declaring and setting all rows.
-var line0 = [tableContents[0][0], tableContents[0][1], tableContents[0][2]]; // Top row.
-var line1 = [tableContents[1][0], tableContents[1][1], tableContents[1][2]]; // Middle row.
-var line2 = [tableContents[2][0], tableContents[2][1], tableContents[2][2]]; // Bottom row.
-var line3 = [tableContents[0][0], tableContents[1][0], tableContents[2][0]]; // Left column.
-var line4 = [tableContents[0][1], tableContents[1][1], tableContents[2][1]]; // Center column.
-var line5 = [tableContents[0][2], tableContents[1][2], tableContents[2][2]]; // Right column.
-var line6 = [tableContents[0][0], tableContents[1][1], tableContents[2][2]]; // Diagonal from upper left to lower right.
-var line7 = [tableContents[0][2], tableContents[1][1], tableContents[2][0]]; // Diagonal from upper right to lower left.
+// Arrays containing board contents.
+var tableContents = [
+    [0,0,0],
+    [0,0,0],
+    [0,0,0]
+];
+
+/* 
+*   The are 8 possible lines in which a player can win. 
+*   These arrays set out a list of row/column arrays that define the lines' paths. 
+*/ 
+var line0 = [[0, 0], [0, 1], [0, 2]]; // Top row.
+var line1 = [[1, 0], [1, 1], [1, 2]]; // Middle row.
+var line2 = [[2, 0], [2, 1], [2, 2]]; // Bottom row.
+var line3 = [[0, 0], [1, 0], [2, 0]]; // Left column.
+var line4 = [[0, 1], [1, 1], [2, 1]]; // Center column.
+var line5 = [[0, 2], [1, 2], [2, 2]]; // Right column.
+var line6 = [[0, 0], [1, 1], [2, 2]]; // Diagonal from upper left to lower right.
+var line7 = [[0, 2], [1, 1], [2, 0]]; // Diagonal from upper right to lower left.
+var lines = [line0, line1, line2, line3, line4, line5, line6, line7];
 
 // Summing rows.
-var sumLine0 = line0.reduce(function(a, b) {return a + b;});
-var sumLine1 = line1.reduce(function(a, b) {return a + b;});
-var sumLine2 = line2.reduce(function(a, b) {return a + b;});
-var sumLine3 = line3.reduce(function(a, b) {return a + b;});
-var sumLine4 = line4.reduce(function(a, b) {return a + b;});
-var sumLine5 = line5.reduce(function(a, b) {return a + b;});
-var sumLine6 = line6.reduce(function(a, b) {return a + b;});
-var sumLine7 = line7.reduce(function(a, b) {return a + b;});
-var sumAllLines = [sumLine0, sumLine1,sumLine2,sumLine3,sumLine4,sumLine5,sumLine6,sumLine7];
-var drawSum = sumLine0 + sumLine1 + sumLine2;
+var sumLine = function(lineNumber) {
+    var total = 0;
+    var currentLine = lines[lineNumber];
+    for (var i = 0; i < 3; i++) {
+        var row = currentLine[i][0];
+        var column = currentLine[i][1];
 
-// Setting and displaying square.
-var setSquare = function(x, y, input) {
-    if (tableContents[x][y] !== 0){
-        alert("This square is not empty. Please make another move.");
-    } else {
-        if (input === "X") {
-            tableContents[x][y] = 1;
-        } else {
-            tableContents[x][y] = 4;
-        }
-	var setDiv = 'divSquare_' + x + y;
-        document.getElementById(setDiv).innerHTML = input;
-        winCheck(input);
-    };
-};
+        var value = tableContents[row][column];
+        total += value;
+    } 
+    return total;
+}
 
-// Checking for a win/draw.
-var winCheck = function(input) {
-    for (i = 0; i < 8; i++) {
-        if (sumAllLines[i] === 12) {
-            alert ("Better luck next time!");
-        } else if (sumAllLines[i] === 3) {
-            alert ("You've won!");
+var sumAllSquares = function() {
+    var total = 0;
+    for (var row=0; row<3; row++) {
+        for (var column=0; column<3; column++) {
+            total += tableContents[row][column];
+        }    
+    }
+    return total;
+}
+
+var isDraw = function() {
+    return sumAllSquares() === 21; 
+}
+
+var getWinner = function() {
+    for (lineNumber=0; lineNumber<lines.length; lineNumber++) {
+        var sum = sumLine(lineNumber);
+        switch (sum) {
+            case 3 * O:
+                return O;
+            case 3 * X:
+                return X;
+            default:
+                return null;
         }
     }
-    if (drawSum === 21) {
-        alert ("It's a draw!");
-    } else {
-        if (input === "X") {
-            computerResponse();
-        }
+
+}
+
+var isWin = function () {
+    return getWinner() !== null;
+}
+
+var findEmptySlotOnLine = function(lineNumber) {
+    var currentLine = lines[lineNumber];
+    for (var i = 0; i < 3; i++) {
+        var row = currentLine[i][0];
+        var column = currentLine[i][1];
+
+        var value = tableContents[row][column];
+        if (value === 0) {
+            return [row, column];
+        } 
     } 
-};
+    return null;
+}
+
+
+var onClick = function(event)  {
+    console.log("an event on the table!", event);
+    id = event.target.id
+    code = parseInt(id.split('_')[1])
+    row = Math.floor(code / 10);
+    column = code % 10;
+    console.log(row, column);
+    setSquare(row, column, X); 
+}
+
+// Setting and displaying square.
+var setSquare = function(row, column, player) {
+    if (tableContents[row][column] !== 0){
+        alert("This square is not empty. Please make another move.");
+    } else {
+        tableContents[row][column] = player;
+        }
+	var setDiv = 'divSquare_' + row + column;
+    document.getElementById(setDiv).innerHTML = (player === X? 'X' : 'O');
+    checkEndGame();
+}
+
+
+var checkEndGame = function () {
+    if (isWin()) {
+        if (getWinner() === X) {
+            messageUser("You've won!!");
+        } else {
+            messageUser("Better luck next time!");
+        }
+    } else if (isDraw()) {
+        messageUser("It's a draw!");
+    }
+}
+
+var messageUser = alert;
 
 // Computer's response.
 var computerResponse = function() {
-
-    // Checking for offensive and then defensive moves.
-    var computerRowCheck = function() {
-        for(var i = 0; i < 3; i++) {
-            // Offensive moves.
-            if(sumAllLines[i] === 8){
-                for(var k=0; k<3; k++) {
-                    for (var l = 0; l < 3; l++){
-                        if (tableContents[k][l] === 0) {
-                            setSquare(k, l, 'O');
-                            return true;
-                        }
-                    }           
-                }
-            // Defensive moves.
-            } else if(sumAllLines[i] === 2) {
-                for(var k=0; k<3; k++) {
-                    for(var l = 0; l < 3; l++){
-                        if (tableContents[k][l] === 0) {
-                            setSquare(k, l, 'O');
-                            return true;
-                        }
-                    }
-                }
+    var thingamie = function(player) {
+        for (var lineNumber=0; lineNumber<lines.length; lineNumber++) {
+            if (sumLine(lineNumber) === 2 * player) {
+                var position = findEmptySlotOnLine(lineNumber);
+                setSquare(position[0], position[1], O);
+                return true;
             }
         }
+        return false;
     }
 
-    if (computerRowCheck()) {
-        return true;
-    } else {
-        randomComputerMove();
+    // If we can win the game by winning, we should do so!
+    if (thingamie(O)) {
+        return;
+   }    
+
+    // As we cannot win right now, can we prevent a loss?
+    if (thingamie(X)) {
+        return;
     }
+
+    randomComputerMove();
+    
 }
 
 var randomComputerMove = function() {
     // Weighting corners more heavily for random computer response.
-    var weightedRows = [0, 0, 1, 2, 2];
-    
+    var weightedSquares = [];
+    for (var lineNumber = 0; lineNumber<lines.length; lineNumber++) {
+        var line = lines[lineNumber];
+        for (var i = 0; i<line.length; i++) {
+            var position = line[i];
+            weightedSquares.push(position);
+        }
+    }
+
     // Randomly selecting a square.
-    var randomNumberX = Math.floor(Math.random() * weightedRows.length);
-    var randomNumberY = Math.floor(Math.random() * weightedRows.length);
-    if (tableContents[weightedRows[randomNumberX]][weightedRows[randomNumberY]] === 0) {
-        setSquare(weightedRows[randomNumberX], weightedRows[randomNumberY], 'O');
+    var randomNumber = Math.floor(Math.random() * weightedSquares.length);
+    var position = weightedSquares[randomNumber];
+    var row = position[0];
+    var column = position[1];
+    if (tableContents[row][column] === 0) {
+        setSquare(row, column, O);
     } else {
         randomComputerMove();
     }
 }
+
+var table = document.getElementsByTagName('table')[0];
+table.addEventListener("click", onClick);
+
+

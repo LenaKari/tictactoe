@@ -13,25 +13,24 @@
 		<h2>TIC-TAC-TOE</h2>
 		<p>Click on a square to make a move, or select the button to start again.</p>
 
-		<script src="myscript.js"></script>
-
-		<div>	
+		<!-- script src="myscript.js"></script -->
+        		<div>	
 
 			<table>
 				<tr>
-					<td><div id="divSquare_00" onclick="setSquare(0, 0, 'X')"></div></td>
-					<td><div id="divSquare_01" onclick="setSquare(0, 1, 'X')"></div></td>
-					<td><div id="divSquare_02" onclick="setSquare(0, 2, 'X')"></div></td>
+					<td><div id="divSquare_00"></div></td>
+					<td><div id="divSquare_01"></div></td>
+					<td><div id="divSquare_02"></div></td>
 				</tr>
                         	<tr>
-					<td><div id="divSquare_10" onclick="setSquare(1, 0, 'X')"></div></td>
-					<td><div id="divSquare_11" onclick="setSquare(1, 1, 'X')"></div></td>
-					<td><div id="divSquare_12" onclick="setSquare(1, 2, 'X')"></div></td>
+					<td><div id="divSquare_10"></div></td>
+					<td><div id="divSquare_11"></div></td>
+					<td><div id="divSquare_12"></div></td>
 				</tr>
                         	<tr>
-					<td><div id="divSquare_20" onclick="setSquare(2, 0, 'X')"></div></td>
-					<td><div id="divSquare_21" onclick="setSquare(2, 1, 'X')"></div></td>
-					<td><div id="divSquare_22" onclick="setSquare(2, 2, 'X')"></div></td>
+					<td><div id="divSquare_20"></div></td>
+					<td><div id="divSquare_21"></div></td>
+					<td><div id="divSquare_22"></div></td>
                         	</tr>
 
 			</table>
@@ -43,6 +42,24 @@
 			</button>
 
 		</div>
+
+
+
+        <script>
+            
+            var onClick = function(event)  {
+                console.log("an event on the table!", event);
+                id = event.target.id
+                code = parseInt(id.split('_')[1])
+                row = Math.floor(code / 10);
+                column = code % 10;
+                console.log(row, column);
+            }
+
+
+            var table = document.getElementsByTagName('table')[0];
+            table.addEventListener("click", onClick);
+        </script>
 
 
 	</body>	
