@@ -51,22 +51,24 @@ var isDraw = function() {
 }
 
 var getWinner = function() {
-    for (lineNumber=0; lineNumber<lines.length; lineNumber++) {
+    for (var lineNumber=0; lineNumber<lines.length; lineNumber++) {
         var sum = sumLine(lineNumber);
         switch (sum) {
             case 3 * O:
                 return O;
             case 3 * X:
                 return X;
-            default:
-                return null;
         }
     }
-
+    return null;
 }
 
 var isWin = function () {
     return getWinner() !== null;
+}
+
+var isGameOver = function() {
+    return (isWin() || isDraw());
 }
 
 var findEmptySlotOnLine = function(lineNumber) {
@@ -92,12 +94,15 @@ var onClick = function(event)  {
     column = code % 10;
     console.log(row, column);
     setSquare(row, column, X); 
+    if (!isGameOver()) {
+        computerResponse();
+    }
 }
 
 // Setting and displaying square.
 var setSquare = function(row, column, player) {
     if (tableContents[row][column] !== 0){
-        alert("This square is not empty. Please make another move.");
+        messageUser("This square is not empty. Please make another move.");
     } else {
         tableContents[row][column] = player;
         }
@@ -119,11 +124,14 @@ var checkEndGame = function () {
     }
 }
 
-var messageUser = alert;
+var messageUser = function(message) {
+    document.getElementById("message").innerHTML = message;
+}
+
 
 // Computer's response.
 var computerResponse = function() {
-    var thingamie = function(player) {
+    var fillEmptySlot = function(player) {
         for (var lineNumber=0; lineNumber<lines.length; lineNumber++) {
             if (sumLine(lineNumber) === 2 * player) {
                 var position = findEmptySlotOnLine(lineNumber);
@@ -135,12 +143,12 @@ var computerResponse = function() {
     }
 
     // If we can win the game by winning, we should do so!
-    if (thingamie(O)) {
+    if (fillEmptySlot(O)) {
         return;
    }    
 
     // As we cannot win right now, can we prevent a loss?
-    if (thingamie(X)) {
+    if (fillEmptySlot(X)) {
         return;
     }
 
@@ -171,7 +179,10 @@ var randomComputerMove = function() {
     }
 }
 
-var table = document.getElementsByTagName('table')[0];
-table.addEventListener("click", onClick);
-
+console.log("Jan is a buttface.");
+document.addEventListener( "DOMContentLoaded", function(){
+    console.log("Olena is awesome!");
+    var table = document.getElementsByTagName('table')[0];
+    table.addEventListener("click", onClick);
+}, false);
 

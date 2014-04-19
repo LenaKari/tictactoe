@@ -13,8 +13,8 @@
 		<h2>TIC-TAC-TOE</h2>
 		<p>Click on a square to make a move, or select the button to start again.</p>
 
-		<!-- script src="myscript.js"></script -->
-        		<div>	
+		<script src="myscript.js"></script>
+        <div>	
 
 			<table>
 				<tr>
@@ -22,16 +22,16 @@
 					<td><div id="divSquare_01"></div></td>
 					<td><div id="divSquare_02"></div></td>
 				</tr>
-                        	<tr>
+                <tr>
 					<td><div id="divSquare_10"></div></td>
 					<td><div id="divSquare_11"></div></td>
 					<td><div id="divSquare_12"></div></td>
 				</tr>
-                        	<tr>
+                <tr>
 					<td><div id="divSquare_20"></div></td>
 					<td><div id="divSquare_21"></div></td>
 					<td><div id="divSquare_22"></div></td>
-                        	</tr>
+                </tr>
 
 			</table>
 
@@ -40,26 +40,9 @@
 			<button class="button" onclick="history.go(0)" value="Refresh">
 				<strong>Start again!</strong>
 			</button>
-
+        <br><br>
+        <div id="message"></div>
 		</div>
-
-
-
-        <script>
-            
-            var onClick = function(event)  {
-                console.log("an event on the table!", event);
-                id = event.target.id
-                code = parseInt(id.split('_')[1])
-                row = Math.floor(code / 10);
-                column = code % 10;
-                console.log(row, column);
-            }
-
-
-            var table = document.getElementsByTagName('table')[0];
-            table.addEventListener("click", onClick);
-        </script>
 
 
 	</body>	
