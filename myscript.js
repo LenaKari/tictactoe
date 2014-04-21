@@ -1,3 +1,4 @@
+// Declaring X and O for storing in tableContents.
 var X = 1;
 var O = 4;
 
@@ -36,6 +37,7 @@ var sumLine = function(lineNumber) {
     return total;
 }
 
+// Summing all squares to determine if there is a draw.
 var sumAllSquares = function() {
     var total = 0;
     for (var row=0; row<3; row++) {
@@ -46,10 +48,12 @@ var sumAllSquares = function() {
     return total;
 }
 
+// Is there a draw?
 var isDraw = function() {
     return sumAllSquares() === 21; 
 }
 
+// Who has won?
 var getWinner = function() {
     for (var lineNumber=0; lineNumber<lines.length; lineNumber++) {
         var sum = sumLine(lineNumber);
@@ -63,14 +67,17 @@ var getWinner = function() {
     return null;
 }
 
+// Is there a winner?
 var isWin = function () {
     return getWinner() !== null;
 }
 
+// Is the game over?
 var isGameOver = function() {
     return (isWin() || isDraw());
 }
 
+// Finding an empty slot for the computer to fill.
 var findEmptySlotOnLine = function(lineNumber) {
     var currentLine = lines[lineNumber];
     for (var i = 0; i < 3; i++) {
@@ -85,7 +92,7 @@ var findEmptySlotOnLine = function(lineNumber) {
     return null;
 }
 
-
+// Setting and displaying a square.
 var onClick = function(event)  {
     console.log("an event on the table!", event);
     id = event.target.id
@@ -94,24 +101,26 @@ var onClick = function(event)  {
     column = code % 10;
     console.log(row, column);
     setSquare(row, column, X); 
-    if (!isGameOver()) {
-        computerResponse();
-    }
 }
 
-// Setting and displaying square.
 var setSquare = function(row, column, player) {
     if (tableContents[row][column] !== 0){
         messageUser("This square is not empty. Please make another move.");
+	return ;	
     } else {
         tableContents[row][column] = player;
         }
 	var setDiv = 'divSquare_' + row + column;
     document.getElementById(setDiv).innerHTML = (player === X? 'X' : 'O');
     checkEndGame();
+    if (!isGameOver()) {
+        if (player === X) {
+            computerResponse();
+        }
+    }
 }
 
-
+// Determine end-game message.
 var checkEndGame = function () {
     if (isWin()) {
         if (getWinner() === X) {
@@ -124,10 +133,10 @@ var checkEndGame = function () {
     }
 }
 
+// Display message.
 var messageUser = function(message) {
     document.getElementById("message").innerHTML = message;
 }
-
 
 // Computer's response.
 var computerResponse = function() {
@@ -179,9 +188,7 @@ var randomComputerMove = function() {
     }
 }
 
-console.log("Jan is a buttface.");
 document.addEventListener( "DOMContentLoaded", function(){
-    console.log("Olena is awesome!");
     var table = document.getElementsByTagName('table')[0];
     table.addEventListener("click", onClick);
 }, false);
