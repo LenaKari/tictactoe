@@ -4,14 +4,16 @@ body {
 }
 
 table {
-	line-height: 150px;
+    height: 465px;
+    width: 465px;
+	line-height: 100%;
 	text-align: center;
-	font-size: 100px;
+    vertical-align: middle;
 	color: black; 
 }
 
+
 td {
-	width: 150px;
 	border-bottom: 2px solid black;
 }
 
@@ -19,12 +21,25 @@ td+td {
 	border-left: 2px solid black;
 }
 
-tr:last-child td {
+.bottomless { 
 	border-bottom: 0px;
 }
 
+.borderless {
+    border: none;
+}
 
-div {
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: 800px;
+    border: none;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#board {
 	height: 470px;
 	width: 470px;
 	background-color: white;
@@ -36,10 +51,11 @@ div {
 
 
 .button {
+    margin-top: 30px;
 	background-color: #33cc33 ;
-	width: 100px ;
-	height: 30px ;
-	line-height: 20px ;
+	width: 100px;
+	height: 30px;
+	line-height: 2em ;
 	border: 2px solid black;
 	text-align: center ;
 	vertical-align: middle ;
@@ -47,85 +63,56 @@ div {
 	cursor: Pointer ;
 }
 
-#divSquare_00 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
-#divSquare_01 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
-#divSquare_02 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
-#divSquare_10 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
-#divSquare_11 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
-#divSquare_12 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
-#divSquare_20 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
-#divSquare_21 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
-#divSquare_22 {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
-}
-
 #message {
-    height: 100px;
-    width: 470px;
+    background-color: #B0B0B0;
+    min-height: 0px;
+    width: 300px;
     color: red;
     border: 2px solid black;
     border-radius: 5px;
-    font-size: 20px;     
+    font-size: 2em;     
     text-align: center;
-    line-height: 40px;
+    line-height: 2em;
 }
+
+.squareDivs {
+    height: 150px;
+    width: 150px;
+    border: none;
+    cursor: pointer;
+    font-size: 100px;
+    line-height: 130px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#divSquare_00 {
+}
+
+#divSquare_01 {
+}
+
+#divSquare_02 {
+}
+
+#divSquare_10 {
+}
+
+#divSquare_11 {
+}
+
+#divSquare_12 {
+}
+
+#divSquare_20 {
+}
+
+#divSquare_21 {
+}
+
+#divSquare_22 {
+}
+
+

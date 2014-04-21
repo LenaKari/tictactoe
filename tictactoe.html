@@ -3,47 +3,53 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<title>tic-tac-toe</title>
 	</head>
 
 
 	<body>
-
-		<h2>TIC-TAC-TOE</h2>
-		<p>Click on a square to make a move, or select the button to start again.</p>
+        <center>
+		    <h2>TIC-TAC-TOE</h2>
+		    <p>Click on a square to make a move, or select the button to start again.</p>
+        </center>
 
 		<script src="myscript.js"></script>
-        <div>	
+        <table id="container">
+            <tr>
+                <td class="borderless">
+                    <div id="board">	
+                        <table>
+                            <tr>
+                                <td><div class="squareDivs" id="divSquare_00"></div></td>
+                                <td><div class="squareDivs" id="divSquare_01"></div></td>
+                                <td><div class="squareDivs" id="divSquare_02"></div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="squareDivs" id="divSquare_10"></div></td>
+                                <td><div class="squareDivs" id="divSquare_11"></div></td>
+                                <td><div class="squareDivs" id="divSquare_12"></div></td>
+                            </tr>
+                            <tr>
+                                <td class="bottomless"><div class="squareDivs" id="divSquare_20"></div></td>
+                                <td class="bottomless"><div class="squareDivs" id="divSquare_21"></div></td>
+                                <td class="bottomless"><div class="squareDivs" id="divSquare_22"></div></td>
+                            </tr>
 
-			<table>
-				<tr>
-					<td><div id="divSquare_00"></div></td>
-					<td><div id="divSquare_01"></div></td>
-					<td><div id="divSquare_02"></div></td>
-				</tr>
-                <tr>
-					<td><div id="divSquare_10"></div></td>
-					<td><div id="divSquare_11"></div></td>
-					<td><div id="divSquare_12"></div></td>
-				</tr>
-                <tr>
-					<td><div id="divSquare_20"></div></td>
-					<td><div id="divSquare_21"></div></td>
-					<td><div id="divSquare_22"></div></td>
-                </tr>
-
-			</table>
-
-
-		<br><br>
-			<button class="button" onclick="history.go(0)" value="Refresh">
-				<strong>Start again!</strong>
-			</button>
-        <br><br>
-        <div id="message"></div>
-		</div>
-
+                        </table>
+                    </div>
+                </td>
+                <td class="borderless">
+                    <div id="message"></div>
+                
+                    <br><br><br>
+                    
+                    <button class="button" onclick="history.go(0)" value="Refresh">
+                        <strong>Start again!</strong>
+                    </button>
+                </td>
+            </tr>
+        </table>
 
 	</body>	
 
