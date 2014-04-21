@@ -1,121 +1,114 @@
 body {
-	font-family: Courier;
-	font-size: 12px;
+    font-family: Courier;
+    font-size: 1em;
 }
 
 table {
-	line-height: 150px;
-	text-align: center;
-	font-size: 100px;
-	color: black; 
+    height: 465px;
+    width: 465px;
+    line-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
 }
 
 td {
-	width: 150px;
-	border-bottom: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 td+td {
-	border-left: 2px solid black;
+    border-left: 2px solid black;
 }
 
-tr:last-child td {
-	border-bottom: 0px;
+.bottomless {
+    border-bottom: 0px;
 }
 
-
-div {
-	height: 470px;
-	width: 470px;
-	background-color: white;
-	border: 2px solid black;
-	border-radius: 5px;
-	vertical-align: middle;
-	text-align: center;
+.borderless {
+    border: none;
 }
 
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: 800px;
+    border: none;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#board {
+    height: 470px;
+    width: 470px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    vertical-align: middle;
+    text-align: center;
+}
 
 .button {
-	background-color: #33cc33 ;
-	width: 100px ;
-	height: 30px ;
-	line-height: 20px ;
-	border: 2px solid black;
-	text-align: center ;
-	vertical-align: middle ;
-	border-radius: 5px;
-	cursor: Pointer ;
+    margin-top: 30px;
+    background-color: #33cc33 ;
+    width: 100px;
+    height: 30px;
+    line-height: 2em ;
+    border: 2px solid black;
+    text-align: center ;
+    vertical-align: middle ;
+    border-radius: 5px;
+    cursor: Pointer ;
 }
 
-#divSquareOne {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+#message {
+    background-color: #B0B0B0;
+    min-height: 0px;
+    width: 300px;
+    color: red;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 2em;
+    text-align: center;
+    line-height: 2em;
 }
 
-#divSquareTwo {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+.squareDivs {
+    height: 150px;
+    width: 150px;
+    border: none;
+    cursor: pointer;
+    font-size: 100px;
+    line-height: 130px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-#divSquareThree {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+#divSquare_00 {
 }
 
-#divSquareFour {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+#divSquare_01 {
 }
 
-#divSquareFive {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+#divSquare_02 {
 }
 
-#divSquareSix {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+#divSquare_10 {
 }
 
-#divSquareSeven {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+#divSquare_11 {
 }
 
-#divSquareEight {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+#divSquare_12 {
 }
 
-#divSquareNine {
-	height: 150px;
-	width: 150px;
-	background-color: white;
-	border: none;
-	cursor: pointer;
+#divSquare_20 {
 }
 
+#divSquare_21 {
+}
+
+#divSquare_22 {
+}
